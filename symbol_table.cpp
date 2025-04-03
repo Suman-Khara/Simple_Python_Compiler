@@ -30,7 +30,7 @@ public:
     void print() {
         cout << "\nSymbol Table:\n";
         cout << "--------------------------------------\n";
-        cout << "Identifier    | Address   | Type    | Value Address\n";
+        cout << "Id\tAddress\t\tType\tValue Address\n";
         cout << "--------------------------------------\n";
         for (const auto& entry : table) {
             cout << entry.first << "\t"
