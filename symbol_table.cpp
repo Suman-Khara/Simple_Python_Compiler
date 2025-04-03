@@ -42,6 +42,7 @@ public:
     }
 };
 
+#ifdef DEBUG_SYMBOL_TABLE
 int main() {
     SymbolTable symTable;
     symTable.addSymbol("a");
@@ -50,3 +51,4 @@ int main() {
     symTable.print();
     return 0;
 }
+#endif 

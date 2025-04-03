@@ -10,17 +10,16 @@ private:
     };
 
     map<pair<string, string>, LiteralInfo> table;
-    size_t memoryCounter = 1000;
 public:
     void addLiteral(const string& value, const string& type) {
         void* newAddress = nullptr;
-        if (type == "int")
+        if (type == "INTEGER")
             newAddress = new int;
-        else if (type == "float")
+        else if (type == "FLOAT")
             newAddress = new float;
-        else if (type == "string")
+        else if (type == "STRING")
             newAddress = new string;
-        else if (type == "bool")
+        else if (type == "BOOLEAN")
             newAddress = new bool;
         else {
             cerr << "Error: Unsupported type '" << type << "'\n";
@@ -62,6 +61,7 @@ public:
     }
 };
 
+#ifdef DEBUG_LITERAL_TABLE
 int main() {
     LiteralTable lt;
 
@@ -88,3 +88,4 @@ int main() {
 
     return 0;
 }
+#endif
