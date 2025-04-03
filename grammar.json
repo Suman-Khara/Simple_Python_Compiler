@@ -1,0 +1,56 @@
+{
+  "terminals": [
+    "NEWLINE", "IDENTIFIER", "=", "input", "(", "STRING", ")", "print", ":", "INDENT", "DEDENT", 
+    "if", "elif", "else", "<", ">", "==", "!=", "<=", ">=", "+", "-", "*", "/", "[", "]", ",",
+    "int", "float", "str", "bool", "list",
+    "BOOLEAN", "STRING", "FLOAT", "INTEGER"
+  ],
+  "non_terminals": [
+    "Program", "StmtList", "Statement", "AssignmentStmt", "InputStmt", "PrintStmt", "IfStmt", 
+    "ElsePart", "ElifList", "ElseClause", "Condition", "RelOp", "Expression", "Term", "Postfix", 
+    "Primary", "ListLiteral", "ListElements", "CONSTANT"
+  ],
+  "productions": {
+    "Program": [["StmtList"]],
+    
+    "StmtList": [["Statement", "NEWLINE", "StmtList"], []],
+    
+    "Statement": [["AssignmentStmt"], ["InputStmt"], ["PrintStmt"], ["IfStmt"]],
+    
+    "AssignmentStmt": [["IDENTIFIER", "=", "Expression"]],
+    
+    "InputStmt": [["IDENTIFIER", "=", "input", "(", "STRING", ")"]],
+    
+    "PrintStmt": [["print", "(", "Expression", ")"]],
+    
+    "IfStmt": [["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElsePart"]],
+    
+    "ElsePart": [["ElifList", "ElseClause"], ["ElifList"], ["ElseClause"], []],
+    
+    "ElifList": [["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElifList"], []],
+    
+    "ElseClause": [["else", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT"]],
+    
+    "Condition": [["Expression", "RelOp", "Expression"], ["Expression"]],
+    
+    "RelOp": [["<"], [">"], ["=="], ["!="], ["<="], [">="]],
+    
+    "Expression": [["Expression", "+", "Term"], ["Expression", "-", "Term"], ["Term"], 
+                    ["int", "(", "Expression", ")"], ["float", "(", "Expression", ")"],
+                    ["str", "(", "Expression", ")"], ["bool", "(", "Expression", ")"],
+                    ["list", "(", "Expression", ")"]],
+    
+    "Term": [["Term", "*", "Postfix"], ["Term", "/", "Postfix"], ["Postfix"]],
+    
+    "Postfix": [["Primary", "[", "Expression", "]"], ["Primary"]],
+    
+    "Primary": [["CONSTANT"], ["IDENTIFIER"], ["(", "Expression", ")"], ["ListLiteral"]],
+    
+    "ListLiteral": [["[", "ListElements", "]"]],
+    
+    "ListElements": [["Expression", ",", "ListElements"], ["Expression"], []],
+    
+    "CONSTANT": [["BOOLEAN"], ["STRING"], ["FLOAT"], ["INTEGER"]]
+  },
+  "start_symbol": "Program"
+}
