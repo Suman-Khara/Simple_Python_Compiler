@@ -5,7 +5,7 @@
     "int", "float", "str", "bool", "list",
     "BOOLEAN", "STRING", "FLOAT", "INTEGER"
   ],
-  "non_terminals": [
+  "nonTerminals": [
     "Program", "StmtList", "Statement", "AssignmentStmt", "InputStmt", "PrintStmt", "IfStmt", 
     "ElsePart", "ElifList", "ElseClause", "Condition", "RelOp", "Expression", "Term", "Postfix", 
     "Primary", "ListLiteral", "ListElements", "CONSTANT"
@@ -52,5 +52,5 @@
     
     "CONSTANT": [["BOOLEAN"], ["STRING"], ["FLOAT"], ["INTEGER"]]
   },
-  "start_symbol": "Program"
+  "startSymbol": "Program"
 }

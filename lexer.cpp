@@ -19,7 +19,7 @@ private:
     static vector<Token> tokenizeLineContent(const string& line, int lineNumber);
 
 public:
-    static vector<Token> analyzeFile(const string& fileName, SymbolTable& symbolTable, LiteralTable& literalTable);
+    static vector<Token> analyze(const string& fileName, SymbolTable& symbolTable, LiteralTable& literalTable);
 };
 
 // Implementations
@@ -83,7 +83,8 @@ vector<Token> Lexer::tokenizeLineContent(const string& line, int lineNumber) {
     return tokens;
 }
 
-vector<Token> Lexer::analyzeFile(const string& fileName, SymbolTable& symbolTable, LiteralTable& literalTable) {
+vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, LiteralTable& literalTable) {
+    cout << "Lexical Analysis Started\n";
     ifstream infile(fileName);
     if (!infile) {
         cerr << "Error: Unable to open file " << fileName << endl;
@@ -130,23 +131,27 @@ vector<Token> Lexer::analyzeFile(const string& fileName, SymbolTable& symbolTabl
     // Redirect output to symbol_table.txt
     ofstream symbolFile("symbol_table.txt");
     if (symbolFile) {
+        cout << "Symbol Table Reporting started\n";
         streambuf* coutBuf = cout.rdbuf();
         cout.rdbuf(symbolFile.rdbuf());
         symbolTable.print();
         cout.rdbuf(coutBuf);
         symbolFile.close();
+        cout << "Symbol Table Reporting completed\n";
     }
 
     // Redirect output to literal_table.txt
     ofstream literalFile("literal_table.txt");
     if (literalFile) {
+        cout << "Literal Table Reporting started\n";
         streambuf* coutBuf = cout.rdbuf();
         cout.rdbuf(literalFile.rdbuf());
         literalTable.print();
         cout.rdbuf(coutBuf);
         literalFile.close();
+        cout << "Literal Table Reporting completed\n";
     }
-
+    cout << "Lexical Analysis Completed\n";
     return allTokens;
 
 }
@@ -159,7 +164,7 @@ int main(int argc, char* argv[]) {
     LiteralTable literalTable;
     Lexer lexer;
 
-    vector<Token> tokens = lexer.analyzeFile(fileName, symbolTable, literalTable);
+    vector<Token> tokens = lexer.analyze(fileName, symbolTable, literalTable);
 
     cout << "Tokens:\n";
     for (const auto& token : tokens) {
