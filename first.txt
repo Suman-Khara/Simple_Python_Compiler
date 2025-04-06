@@ -1,0 +1,19 @@
+Primary : BOOLEAN STRING FLOAT INTEGER ( [ IDENTIFIER 
+Term : BOOLEAN STRING FLOAT INTEGER ( [ IDENTIFIER 
+ListElements : STRING FLOAT INTEGER ( [ IDENTIFIER BOOLEAN int float str list bool 
+Program : if print IDENTIFIER 
+StmtList : IDENTIFIER print if 
+Statement : if print IDENTIFIER 
+ElseClause : else 
+CONSTANT : INTEGER FLOAT STRING BOOLEAN 
+Expression : INTEGER FLOAT STRING [ IDENTIFIER ( bool list str float BOOLEAN int 
+Condition : STRING FLOAT INTEGER ( [ IDENTIFIER BOOLEAN int float str list bool 
+PrintStmt : print 
+IfStmt : if 
+ElsePart : elif else 
+ListLiteral : [ 
+AssignmentStmt : IDENTIFIER 
+InputStmt : IDENTIFIER 
+RelOp : >= <= != > == < 
+Postfix : INTEGER FLOAT STRING BOOLEAN [ IDENTIFIER ( 
+ElifList : elif 

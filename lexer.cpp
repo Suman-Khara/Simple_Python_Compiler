@@ -93,17 +93,42 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
 
     ofstream lexReport("lexical_analysis.txt");
     vector<Token> allTokens;
+    stack<int> indentStack;
+    indentStack.push(0);
+
     string line;
     int lineNumber = 1;
     bool hasUnknown = false;
 
     while (getline(infile, line)) {
         string noCommentLine = removeComments(line);
-        if (trim(noCommentLine).empty()) {
+        int currentIndent = countLeadingSpaces(noCommentLine);
+        string trimmed = trim(noCommentLine);
+
+        if (trimmed.empty()) {
             lineNumber++;
             continue;
         }
 
+        // Handle INDENT / DEDENT
+        if (currentIndent > indentStack.top()) {
+            indentStack.push(currentIndent);
+            allTokens.push_back({ "INDENT", "", lineNumber });
+            lexReport << lineNumber << setw(15) << "" << setw(15) << "INDENT" << endl;
+        }
+        else {
+            while (currentIndent < indentStack.top()) {
+                indentStack.pop();
+                allTokens.push_back({ "DEDENT", "", lineNumber });
+                lexReport << lineNumber << setw(15) << "" << setw(15) << "DEDENT" << endl;
+            }
+            if (currentIndent != indentStack.top()) {
+                cerr << "Indentation Error at line " << lineNumber << endl;
+                exit(1);
+            }
+        }
+
+        // Tokenize line
         vector<Token> tokens = tokenizeLineContent(noCommentLine, lineNumber);
         for (auto& tok : tokens) {
             allTokens.push_back(tok);
@@ -116,11 +141,43 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
                 literalTable.addLiteral(tok.value, tok.type);
             }
             else if (tok.type == "UNKNOWN") {
-                cerr << "Lexical Error: " << tok.value << " at " << tok.line << " line." << endl;
+                cerr << "Lexical Error: " << tok.value << " at line " << tok.line << endl;
                 hasUnknown = true;
             }
         }
+
+        // Add NEWLINE token
+        allTokens.push_back({ "NEWLINE", "", lineNumber });
+        lexReport << lineNumber << setw(15) << "" << setw(15) << "NEWLINE" << endl;
+
         lineNumber++;
+    }
+
+    // Handle remaining DEDENTs
+    while (indentStack.size() > 1) {
+        indentStack.pop();
+        allTokens.push_back({ "DEDENT", "", lineNumber });
+        lexReport << lineNumber << setw(15) << "" << setw(15) << "DEDENT" << endl;
+    }
+
+    allTokens.push_back({ "$", "$", lineNumber });
+
+    // Write symbol table
+    ofstream symbolFile("symbol_table.txt");
+    if (symbolFile) {
+        streambuf* coutBuf = cout.rdbuf();
+        cout.rdbuf(symbolFile.rdbuf());
+        symbolTable.print();
+        cout.rdbuf(coutBuf);
+    }
+
+    // Write literal table
+    ofstream literalFile("literal_table.txt");
+    if (literalFile) {
+        streambuf* coutBuf = cout.rdbuf();
+        cout.rdbuf(literalFile.rdbuf());
+        literalTable.print();
+        cout.rdbuf(coutBuf);
     }
 
     infile.close();
@@ -128,32 +185,8 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
 
     if (hasUnknown) exit(1);
 
-    // Redirect output to symbol_table.txt
-    ofstream symbolFile("symbol_table.txt");
-    if (symbolFile) {
-        cout << "Symbol Table Reporting started\n";
-        streambuf* coutBuf = cout.rdbuf();
-        cout.rdbuf(symbolFile.rdbuf());
-        symbolTable.print();
-        cout.rdbuf(coutBuf);
-        symbolFile.close();
-        cout << "Symbol Table Reporting completed\n";
-    }
-
-    // Redirect output to literal_table.txt
-    ofstream literalFile("literal_table.txt");
-    if (literalFile) {
-        cout << "Literal Table Reporting started\n";
-        streambuf* coutBuf = cout.rdbuf();
-        cout.rdbuf(literalFile.rdbuf());
-        literalTable.print();
-        cout.rdbuf(coutBuf);
-        literalFile.close();
-        cout << "Literal Table Reporting completed\n";
-    }
     cout << "Lexical Analysis Completed\n";
     return allTokens;
-
 }
 
 #ifdef DEBUG_LEXER

@@ -1,0 +1,792 @@
+(
+0:
+AssignmentStmt -> . IDENTIFIER = Expression 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+InputStmt -> . IDENTIFIER = input ( STRING ) 
+PrintStmt -> . print ( Expression ) 
+Program -> . StmtList 
+S' -> . Program 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . InputStmt 
+Statement -> . PrintStmt 
+StmtList -> .  
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
+
+1:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Condition -> . Expression 
+Condition -> . Expression RelOp Expression 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+IfStmt -> if . Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+2:
+PrintStmt -> print . ( Expression ) 
+
+3:
+AssignmentStmt -> IDENTIFIER . = Expression 
+InputStmt -> IDENTIFIER . = input ( STRING ) 
+
+4:
+S' -> Program .
+
+5:
+Program -> StmtList .
+
+6:
+StmtList -> Statement .
+StmtList -> Statement . NEWLINE StmtList 
+
+7:
+Statement -> PrintStmt .
+
+8:
+Statement -> IfStmt .
+
+9:
+Statement -> AssignmentStmt .
+
+10:
+Statement -> InputStmt .
+
+11:
+CONSTANT -> INTEGER .
+
+12:
+CONSTANT -> BOOLEAN .
+
+13:
+Expression -> bool . ( Expression ) 
+
+14:
+CONSTANT -> FLOAT .
+
+15:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> ( . Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+16:
+Primary -> IDENTIFIER .
+
+17:
+CONSTANT -> STRING .
+
+18:
+Expression -> float . ( Expression ) 
+
+19:
+Expression -> list . ( Expression ) 
+
+20:
+Expression -> str . ( Expression ) 
+
+21:
+Expression -> int . ( Expression ) 
+
+22:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListElements -> .  
+ListElements -> . Expression 
+ListElements -> . Expression , ListElements 
+ListLiteral -> . [ ListElements ] 
+ListLiteral -> [ . ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+23:
+Postfix -> Primary .
+Postfix -> Primary . [ Expression ] 
+
+24:
+Expression -> Term .
+Term -> Term . * Postfix 
+Term -> Term . / Postfix 
+
+25:
+Primary -> CONSTANT .
+
+26:
+Condition -> Expression .
+Condition -> Expression . RelOp Expression 
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+RelOp -> . != 
+RelOp -> . < 
+RelOp -> . <= 
+RelOp -> . == 
+RelOp -> . > 
+RelOp -> . >= 
+
+27:
+IfStmt -> if Condition . : NEWLINE INDENT StmtList DEDENT ElsePart 
+
+28:
+Primary -> ListLiteral .
+
+29:
+Term -> Postfix .
+
+30:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+PrintStmt -> print ( . Expression ) 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+31:
+AssignmentStmt -> IDENTIFIER = . Expression 
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+InputStmt -> IDENTIFIER = . input ( STRING ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+32:
+AssignmentStmt -> . IDENTIFIER = Expression 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+InputStmt -> . IDENTIFIER = input ( STRING ) 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . InputStmt 
+Statement -> . PrintStmt 
+StmtList -> .  
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
+StmtList -> Statement NEWLINE . StmtList 
+
+33:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> bool ( . Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+34:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Primary -> ( Expression . ) 
+
+35:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> float ( . Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+36:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> list ( . Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+37:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+Expression -> str ( . Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+38:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> int ( . Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+39:
+ListLiteral -> [ ListElements . ] 
+
+40:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+ListElements -> Expression .
+ListElements -> Expression . , ListElements 
+
+41:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Postfix -> Primary [ . Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+42:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> Term * . Postfix 
+
+43:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> Term / . Postfix 
+
+44:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> Expression - . Term 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+45:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> Expression + . Term 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+46:
+RelOp -> < .
+
+47:
+RelOp -> != .
+
+48:
+RelOp -> > .
+
+49:
+RelOp -> <= .
+
+50:
+RelOp -> >= .
+
+51:
+RelOp -> == .
+
+52:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Condition -> Expression RelOp . Expression 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+53:
+IfStmt -> if Condition : . NEWLINE INDENT StmtList DEDENT ElsePart 
+
+54:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+PrintStmt -> print ( Expression . ) 
+
+55:
+InputStmt -> IDENTIFIER = input . ( STRING ) 
+
+56:
+AssignmentStmt -> IDENTIFIER = Expression .
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+
+57:
+StmtList -> Statement NEWLINE StmtList .
+
+58:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> bool ( Expression . ) 
+
+59:
+Primary -> ( Expression ) .
+
+60:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> float ( Expression . ) 
+
+61:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> list ( Expression . ) 
+
+62:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> str ( Expression . ) 
+
+63:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> int ( Expression . ) 
+
+64:
+ListLiteral -> [ ListElements ] .
+
+65:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListElements -> .  
+ListElements -> . Expression 
+ListElements -> . Expression , ListElements 
+ListElements -> Expression , . ListElements 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+66:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Postfix -> Primary [ Expression . ] 
+
+67:
+Term -> Term * Postfix .
+
+68:
+Term -> Term / Postfix .
+
+69:
+Expression -> Expression - Term .
+Term -> Term . * Postfix 
+Term -> Term . / Postfix 
+
+70:
+Expression -> Expression + Term .
+Term -> Term . * Postfix 
+Term -> Term . / Postfix 
+
+71:
+Condition -> Expression RelOp Expression .
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+
+72:
+IfStmt -> if Condition : NEWLINE . INDENT StmtList DEDENT ElsePart 
+
+73:
+PrintStmt -> print ( Expression ) .
+
+74:
+InputStmt -> IDENTIFIER = input ( . STRING ) 
+
+75:
+Expression -> bool ( Expression ) .
+
+76:
+Expression -> float ( Expression ) .
+
+77:
+Expression -> list ( Expression ) .
+
+78:
+Expression -> str ( Expression ) .
+
+79:
+Expression -> int ( Expression ) .
+
+80:
+ListElements -> Expression , ListElements .
+
+81:
+Postfix -> Primary [ Expression ] .
+
+82:
+AssignmentStmt -> . IDENTIFIER = Expression 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT ElsePart 
+InputStmt -> . IDENTIFIER = input ( STRING ) 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . InputStmt 
+Statement -> . PrintStmt 
+StmtList -> .  
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
+
+83:
+InputStmt -> IDENTIFIER = input ( STRING . ) 
+
+84:
+IfStmt -> if Condition : NEWLINE INDENT StmtList . DEDENT ElsePart 
+
+85:
+InputStmt -> IDENTIFIER = input ( STRING ) .
+
+86:
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
+ElsePart -> .  
+ElsePart -> . ElifList 
+ElsePart -> . ElifList ElseClause 
+ElsePart -> . ElseClause 
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT . ElsePart 
+
+87:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Condition -> . Expression 
+Condition -> . Expression RelOp Expression 
+ElifList -> elif . Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+88:
+ElseClause -> else . : NEWLINE INDENT StmtList DEDENT 
+
+89:
+ElsePart -> ElseClause .
+
+90:
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart .
+
+91:
+ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
+ElsePart -> ElifList .
+ElsePart -> ElifList . ElseClause 
+
+92:
+ElifList -> elif Condition . : NEWLINE INDENT StmtList DEDENT ElifList 
+
+93:
+ElseClause -> else : . NEWLINE INDENT StmtList DEDENT 
+
+94:
+ElsePart -> ElifList ElseClause .
+
+95:
+ElifList -> elif Condition : . NEWLINE INDENT StmtList DEDENT ElifList 
+
+96:
+ElseClause -> else : NEWLINE . INDENT StmtList DEDENT 
+
+97:
+ElifList -> elif Condition : NEWLINE . INDENT StmtList DEDENT ElifList 
+
+98:
+AssignmentStmt -> . IDENTIFIER = Expression 
+ElseClause -> else : NEWLINE INDENT . StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+InputStmt -> . IDENTIFIER = input ( STRING ) 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . InputStmt 
+Statement -> . PrintStmt 
+StmtList -> .  
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
+
+99:
+AssignmentStmt -> . IDENTIFIER = Expression 
+ElifList -> elif Condition : NEWLINE INDENT . StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+InputStmt -> . IDENTIFIER = input ( STRING ) 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . InputStmt 
+Statement -> . PrintStmt 
+StmtList -> .  
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
+
+100:
+ElseClause -> else : NEWLINE INDENT StmtList . DEDENT 
+
+101:
+ElifList -> elif Condition : NEWLINE INDENT StmtList . DEDENT ElifList 
+
+102:
+ElseClause -> else : NEWLINE INDENT StmtList DEDENT .
+
+103:
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT . ElifList 
+
+104:
+ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList .
+
+)

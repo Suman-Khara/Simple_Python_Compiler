@@ -1,0 +1,19 @@
+Primary : DEDENT - [ , * < == ] : + / $ ) > != <= >= NEWLINE 
+Term : DEDENT , * < == ] : + / $ ) > != <= >= NEWLINE - 
+ListElements : ] 
+Program : $ 
+StmtList : $ DEDENT 
+Statement : $ DEDENT NEWLINE 
+ElseClause : $ DEDENT NEWLINE 
+CONSTANT : DEDENT >= [ , * < == ] : + / NEWLINE - $ ) > != <= 
+Expression : DEDENT $ ) > == ] != <= < , >= NEWLINE + : - 
+Condition : : 
+PrintStmt : $ DEDENT NEWLINE 
+IfStmt : $ DEDENT NEWLINE 
+ElsePart : $ DEDENT NEWLINE 
+ListLiteral : DEDENT >= [ , * < == ] : + / NEWLINE - $ ) > != <= 
+AssignmentStmt : $ DEDENT NEWLINE 
+InputStmt : $ DEDENT NEWLINE 
+RelOp : INTEGER FLOAT STRING [ IDENTIFIER ( bool list str float BOOLEAN int 
+Postfix : DEDENT , * < == ] : + / $ ) > != <= >= NEWLINE - 
+ElifList : $ DEDENT NEWLINE else 

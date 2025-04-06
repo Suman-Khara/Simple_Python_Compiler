@@ -1,0 +1,51 @@
+0 : Production: AssignmentStmt -> IDENTIFIER = Expression 
+1 : Production: CONSTANT -> BOOLEAN 
+2 : Production: CONSTANT -> STRING 
+3 : Production: CONSTANT -> FLOAT 
+4 : Production: CONSTANT -> INTEGER 
+5 : Production: Condition -> Expression RelOp Expression 
+6 : Production: Condition -> Expression 
+7 : Production: ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+8 : Production: ElseClause -> else : NEWLINE INDENT StmtList DEDENT 
+9 : Production: ElsePart -> ElifList ElseClause 
+10 : Production: ElsePart -> ElifList 
+11 : Production: ElsePart -> ElseClause 
+12 : Production: ElsePart ->  
+13 : Production: Expression -> Expression + Term 
+14 : Production: Expression -> Expression - Term 
+15 : Production: Expression -> Term 
+16 : Production: Expression -> int ( Expression ) 
+17 : Production: Expression -> float ( Expression ) 
+18 : Production: Expression -> str ( Expression ) 
+19 : Production: Expression -> bool ( Expression ) 
+20 : Production: Expression -> list ( Expression ) 
+21 : Production: IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+22 : Production: InputStmt -> IDENTIFIER = input ( STRING ) 
+23 : Production: ListElements -> Expression , ListElements 
+24 : Production: ListElements -> Expression 
+25 : Production: ListElements ->  
+26 : Production: ListLiteral -> [ ListElements ] 
+27 : Production: Postfix -> Primary [ Expression ] 
+28 : Production: Postfix -> Primary 
+29 : Production: Primary -> CONSTANT 
+30 : Production: Primary -> IDENTIFIER 
+31 : Production: Primary -> ( Expression ) 
+32 : Production: Primary -> ListLiteral 
+33 : Production: PrintStmt -> print ( Expression ) 
+34 : Production: Program -> StmtList 
+35 : Production: RelOp -> < 
+36 : Production: RelOp -> > 
+37 : Production: RelOp -> == 
+38 : Production: RelOp -> != 
+39 : Production: RelOp -> <= 
+40 : Production: RelOp -> >= 
+41 : Production: Statement -> AssignmentStmt 
+42 : Production: Statement -> InputStmt 
+43 : Production: Statement -> PrintStmt 
+44 : Production: Statement -> IfStmt 
+45 : Production: StmtList -> Statement NEWLINE StmtList 
+46 : Production: StmtList -> Statement 
+47 : Production: StmtList ->  
+48 : Production: Term -> Term * Postfix 
+49 : Production: Term -> Term / Postfix 
+50 : Production: Term -> Postfix 

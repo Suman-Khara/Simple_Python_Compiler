@@ -1,0 +1,26 @@
+Program
+  StmtList
+    Statement
+      AssignmentStmt
+        IDENTIFIER (a)
+        OPERATOR (=)
+        Expression
+          Term
+            Postfix
+              Primary
+                CONSTANT
+                  INTEGER (5)
+    NEWLINE (<NEWLINE>)
+    StmtList
+      Statement
+        PrintStmt
+          KEYWORD (print)
+          SEPARATOR (()
+          Expression
+            Term
+              Postfix
+                Primary
+                  IDENTIFIER (a)
+          SEPARATOR ())
+      NEWLINE (<NEWLINE>)
+      StmtList

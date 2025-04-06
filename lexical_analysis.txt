@@ -1,7 +1,167 @@
-1              a     IDENTIFIER
-1              =       OPERATOR
-1              5        INTEGER
-2          print        KEYWORD
-2              (      SEPARATOR
-2              a     IDENTIFIER
-2              )      SEPARATOR
+2              x     IDENTIFIER
+2              =       OPERATOR
+2             10        INTEGER
+2                       NEWLINE
+3              y     IDENTIFIER
+3              =       OPERATOR
+3           3.14          FLOAT
+3                       NEWLINE
+4           name     IDENTIFIER
+4              =       OPERATOR
+4        "Alice"         STRING
+4                       NEWLINE
+5       is_valid     IDENTIFIER
+5              =       OPERATOR
+5           True        BOOLEAN
+5                       NEWLINE
+6          items     IDENTIFIER
+6              =       OPERATOR
+6              [      SEPARATOR
+6              1        INTEGER
+6              ,      SEPARATOR
+6              2        INTEGER
+6              ,      SEPARATOR
+6              3        INTEGER
+6              ]      SEPARATOR
+6                       NEWLINE
+8          print        KEYWORD
+8              (      SEPARATOR
+8"Testing Data Types:"         STRING
+8              )      SEPARATOR
+8                       NEWLINE
+9          print        KEYWORD
+9              (      SEPARATOR
+9              x     IDENTIFIER
+9              )      SEPARATOR
+9                       NEWLINE
+10          print        KEYWORD
+10              (      SEPARATOR
+10              y     IDENTIFIER
+10              )      SEPARATOR
+10                       NEWLINE
+11          print        KEYWORD
+11              (      SEPARATOR
+11           name     IDENTIFIER
+11              )      SEPARATOR
+11                       NEWLINE
+12          print        KEYWORD
+12              (      SEPARATOR
+12       is_valid     IDENTIFIER
+12              )      SEPARATOR
+12                       NEWLINE
+13          print        KEYWORD
+13              (      SEPARATOR
+13          items     IDENTIFIER
+13              )      SEPARATOR
+13                       NEWLINE
+16             if        KEYWORD
+16              x     IDENTIFIER
+16              >       OPERATOR
+16              5        INTEGER
+16              :      SEPARATOR
+16                       NEWLINE
+17                        INDENT
+17          print        KEYWORD
+17              (      SEPARATOR
+17"x is greater than 5"         STRING
+17              )      SEPARATOR
+17                       NEWLINE
+20                        DEDENT
+20             if        KEYWORD
+20              y     IDENTIFIER
+20              <       OPERATOR
+20              1        INTEGER
+20              :      SEPARATOR
+20                       NEWLINE
+21                        INDENT
+21          print        KEYWORD
+21              (      SEPARATOR
+21"y is less than 1"         STRING
+21              )      SEPARATOR
+21                       NEWLINE
+22                        DEDENT
+22           else        KEYWORD
+22              :      SEPARATOR
+22                       NEWLINE
+23                        INDENT
+23          print        KEYWORD
+23              (      SEPARATOR
+23"y is greater than or equal to 1"         STRING
+23              )      SEPARATOR
+23                       NEWLINE
+26                        DEDENT
+26             if        KEYWORD
+26           name     IDENTIFIER
+26             ==       OPERATOR
+26          "Bob"         STRING
+26              :      SEPARATOR
+26                       NEWLINE
+27                        INDENT
+27          print        KEYWORD
+27              (      SEPARATOR
+27    "Hello Bob"         STRING
+27              )      SEPARATOR
+27                       NEWLINE
+28                        DEDENT
+28           elif        KEYWORD
+28           name     IDENTIFIER
+28             ==       OPERATOR
+28        "Alice"         STRING
+28              :      SEPARATOR
+28                       NEWLINE
+29                        INDENT
+29          print        KEYWORD
+29              (      SEPARATOR
+29  "Hello Alice"         STRING
+29              )      SEPARATOR
+29                       NEWLINE
+30                        DEDENT
+30           else        KEYWORD
+30              :      SEPARATOR
+30                       NEWLINE
+31                        INDENT
+31          print        KEYWORD
+31              (      SEPARATOR
+31"Hello Stranger"         STRING
+31              )      SEPARATOR
+31                       NEWLINE
+34                        DEDENT
+34             if        KEYWORD
+34       is_valid     IDENTIFIER
+34              :      SEPARATOR
+34                       NEWLINE
+35                        INDENT
+35             if        KEYWORD
+35              x     IDENTIFIER
+35             ==       OPERATOR
+35             10        INTEGER
+35              :      SEPARATOR
+35                       NEWLINE
+36                        INDENT
+36          print        KEYWORD
+36              (      SEPARATOR
+36"Nested if working: x is 10 and valid"         STRING
+36              )      SEPARATOR
+36                       NEWLINE
+37                        DEDENT
+37           else        KEYWORD
+37              :      SEPARATOR
+37                       NEWLINE
+38                        INDENT
+38          print        KEYWORD
+38              (      SEPARATOR
+38"x is not 10 but valid"         STRING
+38              )      SEPARATOR
+38                       NEWLINE
+39                        DEDENT
+39                        DEDENT
+39           else        KEYWORD
+39              :      SEPARATOR
+39                       NEWLINE
+40                        INDENT
+40          print        KEYWORD
+40              (      SEPARATOR
+40    "Not valid"         STRING
+40              )      SEPARATOR
+40                       NEWLINE
+41                        DEDENT
