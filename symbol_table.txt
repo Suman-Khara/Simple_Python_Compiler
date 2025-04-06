@@ -3,5 +3,9 @@ Symbol Table:
 --------------------------------------
 Id	Address		Type	Value Address
 --------------------------------------
-a	2509180641600	UNKNOWN	0
+items	2758355650672	UNKNOWN	0
+name	2758355650640	UNKNOWN	0
+is_valid	2758355650656	UNKNOWN	0
+y	2758355650592	UNKNOWN	0
+x	2758355650448	UNKNOWN	0
 --------------------------------------

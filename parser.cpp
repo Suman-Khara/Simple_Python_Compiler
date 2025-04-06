@@ -24,12 +24,19 @@ public:
         terminals = unordered_set<string>(grammar["terminals"].begin(), grammar["terminals"].end());
         nonTerminals = unordered_set<string>(grammar["nonTerminals"].begin(), grammar["nonTerminals"].end());
 
+        ofstream out("rules.txt");
+
         for (const auto& rule : grammar["productions"].items()) {
             string lhs = rule.key();
             vector<vector<string>> rhsList = rule.value();
             for (const auto& rhs : rhsList) {
                 productions[lhs].push_back(rhs);
                 numberedProductions.emplace_back(lhs, rhs);
+                out << numberedProductions.size() - 1 << " " << lhs << " -> ";
+                for (const auto& symbol : rhs) {
+                    out << symbol << " ";
+                }
+                out << "\n";
             }
         }
 
@@ -401,34 +408,12 @@ public:
                 }
             }
         }
-        writeRulesToFile("rules.txt");
         writeItemsToFile("items.txt");
         writeActionTable();
         writeGotoTable();
         writeReductionTable();
         cout << "LR(0) items constructed successfully\n";
         cout << "Total states: " << states.size() << endl;
-    }
-
-    void writeRulesToFile(const string& filename) {
-        ofstream fout(filename);
-        if (!fout.is_open()) {
-            cerr << "Could not open " << filename << " for writing\n";
-            return;
-        }
-
-        int index = 0;
-        for (const auto& [lhs, productions] : cfg.productions) {
-            for (const auto& rhs : productions) {
-                fout << index++ << ": " << lhs << " -> ";
-                for (const string& sym : rhs) {
-                    fout << sym << " ";
-                }
-                fout << "\n";
-            }
-        }
-
-        fout.close();
     }
 
     void writeItemsToFile(const string& filename) {
@@ -506,13 +491,14 @@ public:
             //cout << "Current Symbol: " << symbol << endl;
             if (!types.count(symbol))
                 symbol = currentToken.value;
-            //cout << "Current state: " << currentState << ", Current token: " << symbol << cfg.getProductionByIndex(reductionTable[currentState][symbol]).first << endl;
+            cout << "Current state: " << currentState << ", Current token: " << symbol << " ";
             // Case 2: SHIFT
             if (actionTable[currentState].count(symbol)) {
                 int nextState = actionTable[currentState][symbol];
                 stateStack.push_back(nextState);
                 symbolStack.push_back(new ASTNode(currentToken.type, currentToken));
                 currentToken = tokens[++i];
+                cout << "SHIFT to state " << nextState << endl;
             }
 
             // Case 3: REDUCE
@@ -548,6 +534,7 @@ public:
                 }
 
                 stateStack.push_back(gotoTable[topState][lhs]);
+                cout << "REDUCE by rule " << prodIndex << " GOTO to state " << stateStack.back() << "\n";
             }
 
             // Case 4: ERROR

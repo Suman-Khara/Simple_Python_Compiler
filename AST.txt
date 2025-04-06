@@ -2,25 +2,426 @@ Program
   StmtList
     Statement
       AssignmentStmt
-        IDENTIFIER (a)
+        IDENTIFIER (x)
         OPERATOR (=)
         Expression
           Term
             Postfix
               Primary
                 CONSTANT
-                  INTEGER (5)
+                  INTEGER (10)
     NEWLINE (<NEWLINE>)
     StmtList
       Statement
-        PrintStmt
-          KEYWORD (print)
-          SEPARATOR (()
+        AssignmentStmt
+          IDENTIFIER (y)
+          OPERATOR (=)
           Expression
             Term
               Postfix
                 Primary
-                  IDENTIFIER (a)
-          SEPARATOR ())
+                  CONSTANT
+                    FLOAT (3.14)
       NEWLINE (<NEWLINE>)
       StmtList
+        Statement
+          AssignmentStmt
+            IDENTIFIER (name)
+            OPERATOR (=)
+            Expression
+              Term
+                Postfix
+                  Primary
+                    CONSTANT
+                      STRING ("Alice")
+        NEWLINE (<NEWLINE>)
+        StmtList
+          Statement
+            AssignmentStmt
+              IDENTIFIER (is_valid)
+              OPERATOR (=)
+              Expression
+                Term
+                  Postfix
+                    Primary
+                      CONSTANT
+                        BOOLEAN (True)
+          NEWLINE (<NEWLINE>)
+          StmtList
+            Statement
+              AssignmentStmt
+                IDENTIFIER (items)
+                OPERATOR (=)
+                Expression
+                  Term
+                    Postfix
+                      Primary
+                        ListLiteral
+                          SEPARATOR ([)
+                          ListElements
+                            Expression
+                              Term
+                                Postfix
+                                  Primary
+                                    CONSTANT
+                                      INTEGER (1)
+                            SEPARATOR (,)
+                            ListElements
+                              Expression
+                                Term
+                                  Postfix
+                                    Primary
+                                      CONSTANT
+                                        INTEGER (2)
+                              SEPARATOR (,)
+                              ListElements
+                                Expression
+                                  Term
+                                    Postfix
+                                      Primary
+                                        CONSTANT
+                                          INTEGER (3)
+                          SEPARATOR (])
+            NEWLINE (<NEWLINE>)
+            StmtList
+              Statement
+                PrintStmt
+                  KEYWORD (print)
+                  SEPARATOR (()
+                  Expression
+                    Term
+                      Postfix
+                        Primary
+                          CONSTANT
+                            STRING ("Testing Data Types:")
+                  SEPARATOR ())
+              NEWLINE (<NEWLINE>)
+              StmtList
+                Statement
+                  PrintStmt
+                    KEYWORD (print)
+                    SEPARATOR (()
+                    Expression
+                      Term
+                        Postfix
+                          Primary
+                            IDENTIFIER (x)
+                    SEPARATOR ())
+                NEWLINE (<NEWLINE>)
+                StmtList
+                  Statement
+                    PrintStmt
+                      KEYWORD (print)
+                      SEPARATOR (()
+                      Expression
+                        Term
+                          Postfix
+                            Primary
+                              IDENTIFIER (y)
+                      SEPARATOR ())
+                  NEWLINE (<NEWLINE>)
+                  StmtList
+                    Statement
+                      PrintStmt
+                        KEYWORD (print)
+                        SEPARATOR (()
+                        Expression
+                          Term
+                            Postfix
+                              Primary
+                                IDENTIFIER (name)
+                        SEPARATOR ())
+                    NEWLINE (<NEWLINE>)
+                    StmtList
+                      Statement
+                        PrintStmt
+                          KEYWORD (print)
+                          SEPARATOR (()
+                          Expression
+                            Term
+                              Postfix
+                                Primary
+                                  IDENTIFIER (is_valid)
+                          SEPARATOR ())
+                      NEWLINE (<NEWLINE>)
+                      StmtList
+                        Statement
+                          PrintStmt
+                            KEYWORD (print)
+                            SEPARATOR (()
+                            Expression
+                              Term
+                                Postfix
+                                  Primary
+                                    IDENTIFIER (items)
+                            SEPARATOR ())
+                        NEWLINE (<NEWLINE>)
+                        StmtList
+                          IfStmt
+                            KEYWORD (if)
+                            Condition
+                              Expression
+                                Term
+                                  Postfix
+                                    Primary
+                                      IDENTIFIER (x)
+                              RelOp
+                                OPERATOR (>)
+                              Expression
+                                Term
+                                  Postfix
+                                    Primary
+                                      CONSTANT
+                                        INTEGER (5)
+                            SEPARATOR (:)
+                            NEWLINE (<NEWLINE>)
+                            INDENT (<INDENT>)
+                            StmtList
+                              Statement
+                                PrintStmt
+                                  KEYWORD (print)
+                                  SEPARATOR (()
+                                  Expression
+                                    Term
+                                      Postfix
+                                        Primary
+                                          CONSTANT
+                                            STRING ("x is greater than 5")
+                                  SEPARATOR ())
+                              NEWLINE (<NEWLINE>)
+                              StmtList
+                            DEDENT (<DEDENT>)
+                          StmtList
+                            IfStmt
+                              KEYWORD (if)
+                              Condition
+                                Expression
+                                  Term
+                                    Postfix
+                                      Primary
+                                        IDENTIFIER (y)
+                                RelOp
+                                  OPERATOR (<)
+                                Expression
+                                  Term
+                                    Postfix
+                                      Primary
+                                        CONSTANT
+                                          INTEGER (1)
+                              SEPARATOR (:)
+                              NEWLINE (<NEWLINE>)
+                              INDENT (<INDENT>)
+                              StmtList
+                                Statement
+                                  PrintStmt
+                                    KEYWORD (print)
+                                    SEPARATOR (()
+                                    Expression
+                                      Term
+                                        Postfix
+                                          Primary
+                                            CONSTANT
+                                              STRING ("y is less than 1")
+                                    SEPARATOR ())
+                                NEWLINE (<NEWLINE>)
+                                StmtList
+                              DEDENT (<DEDENT>)
+                              ElseClause
+                                KEYWORD (else)
+                                SEPARATOR (:)
+                                NEWLINE (<NEWLINE>)
+                                INDENT (<INDENT>)
+                                StmtList
+                                  Statement
+                                    PrintStmt
+                                      KEYWORD (print)
+                                      SEPARATOR (()
+                                      Expression
+                                        Term
+                                          Postfix
+                                            Primary
+                                              CONSTANT
+                                                STRING ("y is greater than or equal to 1")
+                                      SEPARATOR ())
+                                  NEWLINE (<NEWLINE>)
+                                  StmtList
+                                DEDENT (<DEDENT>)
+                            StmtList
+                              IfStmt
+                                KEYWORD (if)
+                                Condition
+                                  Expression
+                                    Term
+                                      Postfix
+                                        Primary
+                                          IDENTIFIER (name)
+                                  RelOp
+                                    OPERATOR (==)
+                                  Expression
+                                    Term
+                                      Postfix
+                                        Primary
+                                          CONSTANT
+                                            STRING ("Bob")
+                                SEPARATOR (:)
+                                NEWLINE (<NEWLINE>)
+                                INDENT (<INDENT>)
+                                StmtList
+                                  Statement
+                                    PrintStmt
+                                      KEYWORD (print)
+                                      SEPARATOR (()
+                                      Expression
+                                        Term
+                                          Postfix
+                                            Primary
+                                              CONSTANT
+                                                STRING ("Hello Bob")
+                                      SEPARATOR ())
+                                  NEWLINE (<NEWLINE>)
+                                  StmtList
+                                DEDENT (<DEDENT>)
+                                ElifList
+                                  KEYWORD (elif)
+                                  Condition
+                                    Expression
+                                      Term
+                                        Postfix
+                                          Primary
+                                            IDENTIFIER (name)
+                                    RelOp
+                                      OPERATOR (==)
+                                    Expression
+                                      Term
+                                        Postfix
+                                          Primary
+                                            CONSTANT
+                                              STRING ("Alice")
+                                  SEPARATOR (:)
+                                  NEWLINE (<NEWLINE>)
+                                  INDENT (<INDENT>)
+                                  StmtList
+                                    Statement
+                                      PrintStmt
+                                        KEYWORD (print)
+                                        SEPARATOR (()
+                                        Expression
+                                          Term
+                                            Postfix
+                                              Primary
+                                                CONSTANT
+                                                  STRING ("Hello Alice")
+                                        SEPARATOR ())
+                                    NEWLINE (<NEWLINE>)
+                                    StmtList
+                                  DEDENT (<DEDENT>)
+                                  ElseClause
+                                    KEYWORD (else)
+                                    SEPARATOR (:)
+                                    NEWLINE (<NEWLINE>)
+                                    INDENT (<INDENT>)
+                                    StmtList
+                                      Statement
+                                        PrintStmt
+                                          KEYWORD (print)
+                                          SEPARATOR (()
+                                          Expression
+                                            Term
+                                              Postfix
+                                                Primary
+                                                  CONSTANT
+                                                    STRING ("Hello Stranger")
+                                          SEPARATOR ())
+                                      NEWLINE (<NEWLINE>)
+                                      StmtList
+                                    DEDENT (<DEDENT>)
+                              StmtList
+                                Statement
+                                  IfStmt
+                                    KEYWORD (if)
+                                    Condition
+                                      Expression
+                                        Term
+                                          Postfix
+                                            Primary
+                                              IDENTIFIER (is_valid)
+                                    SEPARATOR (:)
+                                    NEWLINE (<NEWLINE>)
+                                    INDENT (<INDENT>)
+                                    StmtList
+                                      Statement
+                                        IfStmt
+                                          KEYWORD (if)
+                                          Condition
+                                            Expression
+                                              Term
+                                                Postfix
+                                                  Primary
+                                                    IDENTIFIER (x)
+                                            RelOp
+                                              OPERATOR (==)
+                                            Expression
+                                              Term
+                                                Postfix
+                                                  Primary
+                                                    CONSTANT
+                                                      INTEGER (10)
+                                          SEPARATOR (:)
+                                          NEWLINE (<NEWLINE>)
+                                          INDENT (<INDENT>)
+                                          StmtList
+                                            Statement
+                                              PrintStmt
+                                                KEYWORD (print)
+                                                SEPARATOR (()
+                                                Expression
+                                                  Term
+                                                    Postfix
+                                                      Primary
+                                                        CONSTANT
+                                                          STRING ("Nested if working: x is 10 and valid")
+                                                SEPARATOR ())
+                                            NEWLINE (<NEWLINE>)
+                                            StmtList
+                                          DEDENT (<DEDENT>)
+                                          ElseClause
+                                            KEYWORD (else)
+                                            SEPARATOR (:)
+                                            NEWLINE (<NEWLINE>)
+                                            INDENT (<INDENT>)
+                                            StmtList
+                                              Statement
+                                                PrintStmt
+                                                  KEYWORD (print)
+                                                  SEPARATOR (()
+                                                  Expression
+                                                    Term
+                                                      Postfix
+                                                        Primary
+                                                          CONSTANT
+                                                            STRING ("x is not 10 but valid")
+                                                  SEPARATOR ())
+                                              NEWLINE (<NEWLINE>)
+                                              StmtList
+                                            DEDENT (<DEDENT>)
+                                    DEDENT (<DEDENT>)
+                                    ElseClause
+                                      KEYWORD (else)
+                                      SEPARATOR (:)
+                                      NEWLINE (<NEWLINE>)
+                                      INDENT (<INDENT>)
+                                      StmtList
+                                        Statement
+                                          PrintStmt
+                                            KEYWORD (print)
+                                            SEPARATOR (()
+                                            Expression
+                                              Term
+                                                Postfix
+                                                  Primary
+                                                    CONSTANT
+                                                      STRING ("Not valid")
+                                            SEPARATOR ())
+                                        NEWLINE (<NEWLINE>)
+                                        StmtList
+                                      DEDENT (<DEDENT>)

@@ -1,16 +1,18 @@
 (
 0:
 AssignmentStmt -> . IDENTIFIER = Expression 
-IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-InputStmt -> . IDENTIFIER = input ( STRING ) 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Program -> . StmtList 
 S' -> . Program 
 Statement -> . AssignmentStmt 
 Statement -> . IfStmt 
-Statement -> . InputStmt 
 Statement -> . PrintStmt 
 StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> . Statement 
 StmtList -> . Statement NEWLINE StmtList 
 
 1:
@@ -25,10 +27,14 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
-IfStmt -> if . Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+IfStmt -> if . Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> if . Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> if . Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 ListLiteral -> . [ ListElements ] 
 Postfix -> . Primary 
 Postfix -> . Primary [ Expression ] 
@@ -45,7 +51,6 @@ PrintStmt -> print . ( Expression )
 
 3:
 AssignmentStmt -> IDENTIFIER . = Expression 
-InputStmt -> IDENTIFIER . = input ( STRING ) 
 
 4:
 S' -> Program .
@@ -54,33 +59,44 @@ S' -> Program .
 Program -> StmtList .
 
 6:
+StmtList -> Statement .
 StmtList -> Statement . NEWLINE StmtList 
 
 7:
 Statement -> PrintStmt .
 
 8:
+AssignmentStmt -> . IDENTIFIER = Expression 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
 Statement -> IfStmt .
+Statement -> . PrintStmt 
+StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> IfStmt . StmtList 
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
 
 9:
 Statement -> AssignmentStmt .
 
 10:
-Statement -> InputStmt .
-
-11:
 CONSTANT -> INTEGER .
 
-12:
+11:
 CONSTANT -> BOOLEAN .
 
-13:
+12:
 Expression -> bool . ( Expression ) 
 
-14:
+13:
 CONSTANT -> FLOAT .
 
-15:
+14:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -90,6 +106,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -104,6 +122,10 @@ Primary -> . ListLiteral
 Term -> . Postfix 
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
+
+15:
+Expression -> input . ( ) 
+Expression -> input . ( Expression ) 
 
 16:
 Primary -> IDENTIFIER .
@@ -133,6 +155,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -176,13 +200,15 @@ RelOp -> . >
 RelOp -> . >= 
 
 27:
-IfStmt -> if Condition . : NEWLINE INDENT StmtList DEDENT ElsePart 
+Term -> Postfix .
 
 28:
-Primary -> ListLiteral .
+IfStmt -> if Condition . : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> if Condition . : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> if Condition . : NEWLINE INDENT StmtList DEDENT ElseClause 
 
 29:
-Term -> Postfix .
+Primary -> ListLiteral .
 
 30:
 CONSTANT -> . BOOLEAN 
@@ -194,6 +220,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -220,10 +248,11 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
-InputStmt -> IDENTIFIER = . input ( STRING ) 
 ListLiteral -> . [ ListElements ] 
 Postfix -> . Primary 
 Postfix -> . Primary [ Expression ] 
@@ -237,18 +266,23 @@ Term -> . Term / Postfix
 
 32:
 AssignmentStmt -> . IDENTIFIER = Expression 
-IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-InputStmt -> . IDENTIFIER = input ( STRING ) 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
 Statement -> . IfStmt 
-Statement -> . InputStmt 
 Statement -> . PrintStmt 
 StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> . Statement 
 StmtList -> . Statement NEWLINE StmtList 
 StmtList -> Statement NEWLINE . StmtList 
 
 33:
+StmtList -> IfStmt StmtList .
+
+34:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -259,6 +293,8 @@ Expression -> . Term
 Expression -> . bool ( Expression ) 
 Expression -> bool ( . Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -273,35 +309,10 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-34:
+35:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 Primary -> ( Expression . ) 
-
-35:
-CONSTANT -> . BOOLEAN 
-CONSTANT -> . FLOAT 
-CONSTANT -> . INTEGER 
-CONSTANT -> . STRING 
-Expression -> . Expression + Term 
-Expression -> . Expression - Term 
-Expression -> . Term 
-Expression -> . bool ( Expression ) 
-Expression -> . float ( Expression ) 
-Expression -> float ( . Expression ) 
-Expression -> . int ( Expression ) 
-Expression -> . list ( Expression ) 
-Expression -> . str ( Expression ) 
-ListLiteral -> . [ ListElements ] 
-Postfix -> . Primary 
-Postfix -> . Primary [ Expression ] 
-Primary -> . ( Expression ) 
-Primary -> . CONSTANT 
-Primary -> . IDENTIFIER 
-Primary -> . ListLiteral 
-Term -> . Postfix 
-Term -> . Term * Postfix 
-Term -> . Term / Postfix 
 
 36:
 CONSTANT -> . BOOLEAN 
@@ -313,9 +324,12 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> input ( . ) 
+Expression -> . input ( Expression ) 
+Expression -> input ( . Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
-Expression -> list ( . Expression ) 
 Expression -> . str ( Expression ) 
 ListLiteral -> . [ ListElements ] 
 Postfix -> . Primary 
@@ -338,10 +352,12 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> float ( . Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
-Expression -> str ( . Expression ) 
 ListLiteral -> . [ ListElements ] 
 Postfix -> . Primary 
 Postfix -> . Primary [ Expression ] 
@@ -363,6 +379,62 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> list ( . Expression ) 
+Expression -> . str ( Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+39:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
+Expression -> . int ( Expression ) 
+Expression -> . list ( Expression ) 
+Expression -> . str ( Expression ) 
+Expression -> str ( . Expression ) 
+ListLiteral -> . [ ListElements ] 
+Postfix -> . Primary 
+Postfix -> . Primary [ Expression ] 
+Primary -> . ( Expression ) 
+Primary -> . CONSTANT 
+Primary -> . IDENTIFIER 
+Primary -> . ListLiteral 
+Term -> . Postfix 
+Term -> . Term * Postfix 
+Term -> . Term / Postfix 
+
+40:
+CONSTANT -> . BOOLEAN 
+CONSTANT -> . FLOAT 
+CONSTANT -> . INTEGER 
+CONSTANT -> . STRING 
+Expression -> . Expression + Term 
+Expression -> . Expression - Term 
+Expression -> . Term 
+Expression -> . bool ( Expression ) 
+Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> int ( . Expression ) 
 Expression -> . list ( Expression ) 
@@ -378,16 +450,16 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-39:
+41:
 ListLiteral -> [ ListElements . ] 
 
-40:
+42:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 ListElements -> Expression .
 ListElements -> Expression . , ListElements 
 
-41:
+43:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -397,6 +469,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -412,7 +486,7 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-42:
+44:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -426,7 +500,7 @@ Primary -> . IDENTIFIER
 Primary -> . ListLiteral 
 Term -> Term * . Postfix 
 
-43:
+45:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -440,7 +514,7 @@ Primary -> . IDENTIFIER
 Primary -> . ListLiteral 
 Term -> Term / . Postfix 
 
-44:
+46:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -457,7 +531,7 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-45:
+47:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -474,25 +548,25 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-46:
+48:
 RelOp -> < .
 
-47:
+49:
 RelOp -> != .
 
-48:
+50:
 RelOp -> > .
 
-49:
+51:
 RelOp -> <= .
 
-50:
+52:
 RelOp -> >= .
 
-51:
+53:
 RelOp -> == .
 
-52:
+54:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -503,6 +577,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -517,57 +593,64 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-53:
-IfStmt -> if Condition : . NEWLINE INDENT StmtList DEDENT ElsePart 
+55:
+IfStmt -> if Condition : . NEWLINE INDENT StmtList DEDENT 
+IfStmt -> if Condition : . NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> if Condition : . NEWLINE INDENT StmtList DEDENT ElseClause 
 
-54:
+56:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 PrintStmt -> print ( Expression . ) 
 
-55:
-InputStmt -> IDENTIFIER = input . ( STRING ) 
-
-56:
+57:
 AssignmentStmt -> IDENTIFIER = Expression .
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 
-57:
+58:
 StmtList -> Statement NEWLINE StmtList .
 
-58:
+59:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 Expression -> bool ( Expression . ) 
 
-59:
+60:
 Primary -> ( Expression ) .
 
-60:
-Expression -> Expression . + Term 
-Expression -> Expression . - Term 
-Expression -> float ( Expression . ) 
-
 61:
-Expression -> Expression . + Term 
-Expression -> Expression . - Term 
-Expression -> list ( Expression . ) 
+Expression -> input ( ) .
 
 62:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
-Expression -> str ( Expression . ) 
+Expression -> input ( Expression . ) 
 
 63:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
-Expression -> int ( Expression . ) 
+Expression -> float ( Expression . ) 
 
 64:
-ListLiteral -> [ ListElements ] .
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> list ( Expression . ) 
 
 65:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> str ( Expression . ) 
+
+66:
+Expression -> Expression . + Term 
+Expression -> Expression . - Term 
+Expression -> int ( Expression . ) 
+
+67:
+ListLiteral -> [ ListElements ] .
+
+68:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
@@ -577,6 +660,8 @@ Expression -> . Expression - Term
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -595,106 +680,112 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-66:
+69:
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 Postfix -> Primary [ Expression . ] 
 
-67:
+70:
 Term -> Term * Postfix .
 
-68:
+71:
 Term -> Term / Postfix .
 
-69:
+72:
 Expression -> Expression - Term .
 Term -> Term . * Postfix 
 Term -> Term . / Postfix 
 
-70:
+73:
 Expression -> Expression + Term .
 Term -> Term . * Postfix 
 Term -> Term . / Postfix 
 
-71:
+74:
 Condition -> Expression RelOp Expression .
 Expression -> Expression . + Term 
 Expression -> Expression . - Term 
 
-72:
-IfStmt -> if Condition : NEWLINE . INDENT StmtList DEDENT ElsePart 
-
-73:
-PrintStmt -> print ( Expression ) .
-
-74:
-InputStmt -> IDENTIFIER = input ( . STRING ) 
-
 75:
-Expression -> bool ( Expression ) .
+IfStmt -> if Condition : NEWLINE . INDENT StmtList DEDENT 
+IfStmt -> if Condition : NEWLINE . INDENT StmtList DEDENT ElifList 
+IfStmt -> if Condition : NEWLINE . INDENT StmtList DEDENT ElseClause 
 
 76:
-Expression -> float ( Expression ) .
+PrintStmt -> print ( Expression ) .
 
 77:
-Expression -> list ( Expression ) .
+Expression -> bool ( Expression ) .
 
 78:
-Expression -> str ( Expression ) .
+Expression -> input ( Expression ) .
 
 79:
-Expression -> int ( Expression ) .
+Expression -> float ( Expression ) .
 
 80:
-ListElements -> Expression , ListElements .
+Expression -> list ( Expression ) .
 
 81:
-Postfix -> Primary [ Expression ] .
+Expression -> str ( Expression ) .
 
 82:
+Expression -> int ( Expression ) .
+
+83:
+ListElements -> Expression , ListElements .
+
+84:
+Postfix -> Primary [ Expression ] .
+
+85:
 AssignmentStmt -> . IDENTIFIER = Expression 
-IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT ElsePart 
-InputStmt -> . IDENTIFIER = input ( STRING ) 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
 Statement -> . IfStmt 
-Statement -> . InputStmt 
 Statement -> . PrintStmt 
 StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> . Statement 
 StmtList -> . Statement NEWLINE StmtList 
 
-83:
-InputStmt -> IDENTIFIER = input ( STRING . ) 
-
-84:
-IfStmt -> if Condition : NEWLINE INDENT StmtList . DEDENT ElsePart 
-
-85:
-InputStmt -> IDENTIFIER = input ( STRING ) .
-
 86:
-ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
-ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
-ElsePart -> .
-ElsePart -> . ElifList 
-ElsePart -> . ElifList ElseClause 
-ElsePart -> . ElseClause 
-IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT . ElsePart 
+IfStmt -> if Condition : NEWLINE INDENT StmtList . DEDENT 
+IfStmt -> if Condition : NEWLINE INDENT StmtList . DEDENT ElifList 
+IfStmt -> if Condition : NEWLINE INDENT StmtList . DEDENT ElseClause 
 
 87:
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT 
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT .
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT . ElifList 
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT . ElseClause 
+
+88:
 CONSTANT -> . BOOLEAN 
 CONSTANT -> . FLOAT 
 CONSTANT -> . INTEGER 
 CONSTANT -> . STRING 
 Condition -> . Expression 
 Condition -> . Expression RelOp Expression 
+ElifList -> elif . Condition : NEWLINE INDENT StmtList DEDENT 
 ElifList -> elif . Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+ElifList -> elif . Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 Expression -> . Expression + Term 
 Expression -> . Expression - Term 
 Expression -> . Term 
 Expression -> . bool ( Expression ) 
 Expression -> . float ( Expression ) 
+Expression -> . input ( ) 
+Expression -> . input ( Expression ) 
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
@@ -709,76 +800,90 @@ Term -> . Postfix
 Term -> . Term * Postfix 
 Term -> . Term / Postfix 
 
-88:
+89:
 ElseClause -> else . : NEWLINE INDENT StmtList DEDENT 
 
-89:
-ElsePart -> ElseClause .
-
 90:
-IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart .
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElseClause .
 
 91:
-ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
-ElsePart -> ElifList .
-ElsePart -> ElifList . ElseClause 
+IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElifList .
 
 92:
+ElifList -> elif Condition . : NEWLINE INDENT StmtList DEDENT 
 ElifList -> elif Condition . : NEWLINE INDENT StmtList DEDENT ElifList 
+ElifList -> elif Condition . : NEWLINE INDENT StmtList DEDENT ElseClause 
 
 93:
 ElseClause -> else : . NEWLINE INDENT StmtList DEDENT 
 
 94:
-ElsePart -> ElifList ElseClause .
+ElifList -> elif Condition : . NEWLINE INDENT StmtList DEDENT 
+ElifList -> elif Condition : . NEWLINE INDENT StmtList DEDENT ElifList 
+ElifList -> elif Condition : . NEWLINE INDENT StmtList DEDENT ElseClause 
 
 95:
-ElifList -> elif Condition : . NEWLINE INDENT StmtList DEDENT ElifList 
-
-96:
 ElseClause -> else : NEWLINE . INDENT StmtList DEDENT 
 
-97:
+96:
+ElifList -> elif Condition : NEWLINE . INDENT StmtList DEDENT 
 ElifList -> elif Condition : NEWLINE . INDENT StmtList DEDENT ElifList 
+ElifList -> elif Condition : NEWLINE . INDENT StmtList DEDENT ElseClause 
+
+97:
+AssignmentStmt -> . IDENTIFIER = Expression 
+ElseClause -> else : NEWLINE INDENT . StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+PrintStmt -> . print ( Expression ) 
+Statement -> . AssignmentStmt 
+Statement -> . IfStmt 
+Statement -> . PrintStmt 
+StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> . Statement 
+StmtList -> . Statement NEWLINE StmtList 
 
 98:
 AssignmentStmt -> . IDENTIFIER = Expression 
-ElseClause -> else : NEWLINE INDENT . StmtList DEDENT 
-IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-InputStmt -> . IDENTIFIER = input ( STRING ) 
+ElifList -> elif Condition : NEWLINE INDENT . StmtList DEDENT 
+ElifList -> elif Condition : NEWLINE INDENT . StmtList DEDENT ElifList 
+ElifList -> elif Condition : NEWLINE INDENT . StmtList DEDENT ElseClause 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
 Statement -> . IfStmt 
-Statement -> . InputStmt 
 Statement -> . PrintStmt 
 StmtList -> .
+StmtList -> . IfStmt StmtList 
+StmtList -> . Statement 
 StmtList -> . Statement NEWLINE StmtList 
 
 99:
-AssignmentStmt -> . IDENTIFIER = Expression 
-ElifList -> elif Condition : NEWLINE INDENT . StmtList DEDENT ElifList 
-IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-InputStmt -> . IDENTIFIER = input ( STRING ) 
-PrintStmt -> . print ( Expression ) 
-Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
-Statement -> . InputStmt 
-Statement -> . PrintStmt 
-StmtList -> .
-StmtList -> . Statement NEWLINE StmtList 
-
-100:
 ElseClause -> else : NEWLINE INDENT StmtList . DEDENT 
 
-101:
+100:
+ElifList -> elif Condition : NEWLINE INDENT StmtList . DEDENT 
 ElifList -> elif Condition : NEWLINE INDENT StmtList . DEDENT ElifList 
+ElifList -> elif Condition : NEWLINE INDENT StmtList . DEDENT ElseClause 
 
-102:
+101:
 ElseClause -> else : NEWLINE INDENT StmtList DEDENT .
 
-103:
+102:
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT 
+ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT .
 ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
 ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT . ElifList 
+ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT . ElseClause 
+ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
+
+103:
+ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElseClause .
 
 104:
 ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList .

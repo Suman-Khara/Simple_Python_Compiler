@@ -1,50 +1,52 @@
-0: Term -> Term * Postfix 
-1: Term -> Term / Postfix 
-2: Term -> Postfix 
-3: StmtList -> Statement NEWLINE StmtList 
-4: StmtList -> 
-5: Statement -> AssignmentStmt 
-6: Statement -> InputStmt 
-7: Statement -> PrintStmt 
-8: Statement -> IfStmt 
-9: PrintStmt -> print ( Expression ) 
-10: Condition -> Expression RelOp Expression 
-11: Condition -> Expression 
-12: RelOp -> < 
-13: RelOp -> > 
-14: RelOp -> == 
-15: RelOp -> != 
-16: RelOp -> <= 
-17: RelOp -> >= 
-18: AssignmentStmt -> IDENTIFIER = Expression 
-19: InputStmt -> IDENTIFIER = input ( STRING ) 
-20: ListLiteral -> [ ListElements ] 
-21: ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
-22: Postfix -> Primary [ Expression ] 
-23: Postfix -> Primary 
-24: ElseClause -> else : NEWLINE INDENT StmtList DEDENT 
-25: CONSTANT -> BOOLEAN 
-26: CONSTANT -> STRING 
-27: CONSTANT -> FLOAT 
-28: CONSTANT -> INTEGER 
-29: Expression -> Expression + Term 
-30: Expression -> Expression - Term 
-31: Expression -> Term 
-32: Expression -> int ( Expression ) 
-33: Expression -> float ( Expression ) 
-34: Expression -> str ( Expression ) 
-35: Expression -> bool ( Expression ) 
-36: Expression -> list ( Expression ) 
-37: Program -> StmtList 
-38: ListElements -> Expression , ListElements 
-39: ListElements -> Expression 
-40: ListElements -> 
-41: ElsePart -> ElifList ElseClause 
-42: ElsePart -> ElifList 
-43: ElsePart -> ElseClause 
-44: ElsePart -> 
-45: IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-46: Primary -> CONSTANT 
-47: Primary -> IDENTIFIER 
-48: Primary -> ( Expression ) 
-49: Primary -> ListLiteral 
+0 AssignmentStmt -> IDENTIFIER = Expression 
+1 CONSTANT -> BOOLEAN 
+2 CONSTANT -> STRING 
+3 CONSTANT -> FLOAT 
+4 CONSTANT -> INTEGER 
+5 Condition -> Expression RelOp Expression 
+6 Condition -> Expression 
+7 ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+8 ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+9 ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT 
+10 ElseClause -> else : NEWLINE INDENT StmtList DEDENT 
+11 Expression -> Expression + Term 
+12 Expression -> Expression - Term 
+13 Expression -> Term 
+14 Expression -> int ( Expression ) 
+15 Expression -> float ( Expression ) 
+16 Expression -> str ( Expression ) 
+17 Expression -> bool ( Expression ) 
+18 Expression -> list ( Expression ) 
+19 Expression -> input ( Expression ) 
+20 Expression -> input ( ) 
+21 IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+22 IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
+23 IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT 
+24 ListElements -> Expression , ListElements 
+25 ListElements -> Expression 
+26 ListElements -> 
+27 ListLiteral -> [ ListElements ] 
+28 Postfix -> Primary [ Expression ] 
+29 Postfix -> Primary 
+30 Primary -> CONSTANT 
+31 Primary -> IDENTIFIER 
+32 Primary -> ( Expression ) 
+33 Primary -> ListLiteral 
+34 PrintStmt -> print ( Expression ) 
+35 Program -> StmtList 
+36 RelOp -> < 
+37 RelOp -> > 
+38 RelOp -> == 
+39 RelOp -> != 
+40 RelOp -> <= 
+41 RelOp -> >= 
+42 Statement -> AssignmentStmt 
+43 Statement -> PrintStmt 
+44 Statement -> IfStmt 
+45 StmtList -> Statement NEWLINE StmtList 
+46 StmtList -> Statement 
+47 StmtList -> IfStmt StmtList 
+48 StmtList -> 
+49 Term -> Term * Postfix 
+50 Term -> Term / Postfix 
+51 Term -> Postfix 

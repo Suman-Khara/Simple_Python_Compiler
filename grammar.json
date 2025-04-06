@@ -6,28 +6,29 @@
     "BOOLEAN", "STRING", "FLOAT", "INTEGER"
   ],
   "nonTerminals": [
-    "Program", "StmtList", "Statement", "AssignmentStmt", "InputStmt", "PrintStmt", "IfStmt", 
-    "ElsePart", "ElifList", "ElseClause", "Condition", "RelOp", "Expression", "Term", "Postfix", 
+    "Program", "StmtList", "Statement", "AssignmentStmt", "PrintStmt", "IfStmt", 
+    "ElifList", "ElseClause", "Condition", "RelOp", "Expression", "Term", "Postfix", 
     "Primary", "ListLiteral", "ListElements", "CONSTANT"
   ],
   "productions": {
     "Program": [["StmtList"]],
     
-    "StmtList": [["Statement", "NEWLINE", "StmtList"], []],
+    "StmtList": [["Statement", "NEWLINE", "StmtList"], ["Statement"], ["IfStmt", "StmtList"], []],
     
-    "Statement": [["AssignmentStmt"], ["InputStmt"], ["PrintStmt"], ["IfStmt"]],
+    "Statement": [["AssignmentStmt"], ["PrintStmt"], ["IfStmt"]],
     
     "AssignmentStmt": [["IDENTIFIER", "=", "Expression"]],
     
-    "InputStmt": [["IDENTIFIER", "=", "input", "(", "STRING", ")"]],
-    
     "PrintStmt": [["print", "(", "Expression", ")"]],
     
-    "IfStmt": [["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElsePart"]],
+    "IfStmt": [["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElifList"],
+               ["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElseClause"],
+               ["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT"]],
     
-    "ElsePart": [["ElifList", "ElseClause"], ["ElifList"], ["ElseClause"], []],
-    
-    "ElifList": [["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElifList"]],
+    "ElifList": [
+    ["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElifList"],
+    ["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElseClause"],
+    ["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT"]],
     
     "ElseClause": [["else", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT"]],
     
@@ -38,7 +39,7 @@
     "Expression": [["Expression", "+", "Term"], ["Expression", "-", "Term"], ["Term"], 
                     ["int", "(", "Expression", ")"], ["float", "(", "Expression", ")"],
                     ["str", "(", "Expression", ")"], ["bool", "(", "Expression", ")"],
-                    ["list", "(", "Expression", ")"]],
+                    ["list", "(", "Expression", ")"], ["input", "(", "Expression", ")"], ["input", "(", ")"]],
     
     "Term": [["Term", "*", "Postfix"], ["Term", "/", "Postfix"], ["Postfix"]],
     

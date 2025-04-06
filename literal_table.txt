@@ -1,5 +1,77 @@
 Literal Table:
+Value: "Alice", Type: STRING
+  Unassigned Addresses: 2758355532384 2758355694912 
+  Assigned Addresses: 
+
+Value: "Bob", Type: STRING
+  Unassigned Addresses: 2758355695344 
+  Assigned Addresses: 
+
+Value: "Hello Alice", Type: STRING
+  Unassigned Addresses: 2758355695248 
+  Assigned Addresses: 
+
+Value: "Hello Bob", Type: STRING
+  Unassigned Addresses: 2758355693808 
+  Assigned Addresses: 
+
+Value: "Hello Stranger", Type: STRING
+  Unassigned Addresses: 2758355694000 
+  Assigned Addresses: 
+
+Value: "Nested if working: x is 10 and valid", Type: STRING
+  Unassigned Addresses: 2758355694288 
+  Assigned Addresses: 
+
+Value: "Not valid", Type: STRING
+  Unassigned Addresses: 2758355695104 
+  Assigned Addresses: 
+
+Value: "Testing Data Types:", Type: STRING
+  Unassigned Addresses: 2758355694192 
+  Assigned Addresses: 
+
+Value: "x is greater than 5", Type: STRING
+  Unassigned Addresses: 2758355693712 
+  Assigned Addresses: 
+
+Value: "x is not 10 but valid", Type: STRING
+  Unassigned Addresses: 2758355695056 
+  Assigned Addresses: 
+
+Value: "y is greater than or equal to 1", Type: STRING
+  Unassigned Addresses: 2758355693760 
+  Assigned Addresses: 
+
+Value: "y is less than 1", Type: STRING
+  Unassigned Addresses: 2758355694144 
+  Assigned Addresses: 
+
+Value: 1, Type: INTEGER
+  Unassigned Addresses: 2758355650608 2758355686784 
+  Assigned Addresses: 
+
+Value: 10, Type: INTEGER
+  Unassigned Addresses: 2758355650528 2758355687344 
+  Assigned Addresses: 
+
+Value: 2, Type: INTEGER
+  Unassigned Addresses: 2758355650624 
+  Assigned Addresses: 
+
+Value: 3, Type: INTEGER
+  Unassigned Addresses: 2758355687440 
+  Assigned Addresses: 
+
+Value: 3.14, Type: FLOAT
+  Unassigned Addresses: 2758355650688 
+  Assigned Addresses: 
+
 Value: 5, Type: INTEGER
-  Unassigned Addresses: 2509180641616 
+  Unassigned Addresses: 2758355687520 
+  Assigned Addresses: 
+
+Value: True, Type: BOOLEAN
+  Unassigned Addresses: 2758355650784 
   Assigned Addresses: 
 
