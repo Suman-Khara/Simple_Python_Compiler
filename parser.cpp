@@ -14,7 +14,6 @@ public:
     unordered_map<string, unordered_set<string>> follow;
     string startSymbol;
     vector<pair<string, vector<string>>> numberedProductions;
-    unordered_set<string> nullable;
 
     CFG(const string& filename) {
         //cout << "Loading grammar from " << filename << endl;
@@ -24,19 +23,13 @@ public:
         //cout << "Grammar loaded successfully\n";
         terminals = unordered_set<string>(grammar["terminals"].begin(), grammar["terminals"].end());
         nonTerminals = unordered_set<string>(grammar["nonTerminals"].begin(), grammar["nonTerminals"].end());
-        ofstream out("rules.txt");
+
         for (const auto& rule : grammar["productions"].items()) {
             string lhs = rule.key();
             vector<vector<string>> rhsList = rule.value();
             for (const auto& rhs : rhsList) {
                 productions[lhs].push_back(rhs);
                 numberedProductions.emplace_back(lhs, rhs);
-                out << numberedProductions.size() - 1 << " : ";
-                out << "Production: " << lhs << " -> ";
-                for (const auto& symbol : rhs) {
-                    out << symbol << " ";
-                }
-                out << endl;
             }
         }
 
@@ -75,15 +68,16 @@ public:
     }
 
     int getProductionIndex(const string& lhs, const vector<string>& rhs) const {
-        for (int i = 0; i < numberedProductions.size(); ++i) {
+        for (size_t i = 0; i < numberedProductions.size(); ++i) {
             if (numberedProductions[i].first == lhs && numberedProductions[i].second == rhs)
-                return i;
+                return static_cast<int>(i);
         }
         return -1;
     }
 
 private:
     void computeFirstSets() {
+        //cout << "Computing FIRST sets...\n";
         for (const string& terminal : terminals)
             first[terminal] = { terminal };
 
@@ -94,40 +88,42 @@ private:
         do {
             changed = false;
             for (const string& A : nonTerminals) {
+                size_t oldSize = first[A].size();
                 for (const auto& production : productions[A]) {
-                    bool allNullable = true;
-                    size_t oldSize = first[A].size();
-
+                    bool epsilonInAll = true;
                     for (const string& symbol : production) {
+
                         for (const string& val : first[symbol]) {
-                            if (val != "")
+                            if (val != "ε")
                                 first[A].insert(val);
                         }
 
-                        if (!first[symbol].count("")) {
-                            allNullable = false;
+                        if (first[symbol].find("ε") == first[symbol].end()) {
+                            epsilonInAll = false;
                             break;
                         }
                     }
 
-                    if (allNullable) {
-                        if (!first[A].count("")) {
-                            first[A].insert("");
-                            changed = true;
-                        }
-                        nullable.insert(A);
-                    }
+                    if (epsilonInAll)
+                        first[A].insert("ε");
 
-                    if (oldSize < first[A].size())
+                    if (first[A].size() > oldSize) {
                         changed = true;
+                        /*cout << "FIRST(" << A << ") updated: { ";
+                        for (const string& s : first[A])
+                            cout << s << " ";
+                        cout << "}" << endl;*/
+                    }
                 }
             }
         } while (changed);
+        //cout << "FIRST sets computed successfully\n";
     }
 
     void computeFollowSets() {
+        //cout << "Computing FOLLOW sets...\n";
         for (const auto& nonTerminal : nonTerminals)
-            follow[nonTerminal] = {};
+            follow[nonTerminal] = unordered_set<string>();
 
         follow[startSymbol].insert("$");
 
@@ -138,40 +134,40 @@ private:
             for (const auto& [lhs, rhsList] : productions) {
                 for (const auto& rhs : rhsList) {
                     for (size_t i = 0; i < rhs.size(); ++i) {
-                        const string& B = rhs[i];
-                        if (!nonTerminals.count(B))
-                            continue;
+                        string symbol = rhs[i];
 
-                        unordered_set<string> trailer;
+                        if (nonTerminals.count(symbol)) {
+                            unordered_set<string> firstNext;
 
-                        // Compute FIRST(β) where β = rhs[i+1..end]
-                        bool allNullable = true;
-                        for (size_t j = i + 1; j < rhs.size(); ++j) {
-                            const string& beta = rhs[j];
+                            if (i + 1 < rhs.size()) {
+                                string nextSymbol = rhs[i + 1];
+                                if (terminals.count(nextSymbol))
+                                    firstNext.insert(nextSymbol);
+                                else
+                                    firstNext.insert(first[nextSymbol].begin(), first[nextSymbol].end());
 
-                            for (const string& sym : first[beta]) {
-                                if (sym != "")
-                                    trailer.insert(sym);
+                                firstNext.erase("ε");
                             }
 
-                            if (!nullable.count(beta)) {
-                                allNullable = false;
-                                break;
+                            if (i + 1 == rhs.size() || (i + 1 < rhs.size() && first[rhs[i + 1]].count("ε")))
+                                firstNext.insert(follow[lhs].begin(), follow[lhs].end());
+
+                            size_t beforeSize = follow[symbol].size();
+                            follow[symbol].insert(firstNext.begin(), firstNext.end());
+
+                            if (follow[symbol].size() > beforeSize) {
+                                changed = true;
+                                /*cout << "FOLLOW(" << symbol << ") updated: { ";
+                                for (const string& s : follow[symbol])
+                                    cout << s << " ";
+                                cout << "}" << endl;*/
                             }
                         }
-
-                        // If everything after B is nullable or it's the end, add FOLLOW(lhs)
-                        if (i == rhs.size() - 1 || allNullable)
-                            trailer.insert(follow[lhs].begin(), follow[lhs].end());
-
-                        size_t oldSize = follow[B].size();
-                        follow[B].insert(trailer.begin(), trailer.end());
-                        if (follow[B].size() > oldSize)
-                            changed = true;
                     }
                 }
             }
         }
+        //cout << "FOLLOW sets computed successfully\n";
     }
 };
 
@@ -374,7 +370,7 @@ public:
 
             // Check for REDUCE actions in this state
             for (const auto& item : currState.rules) {
-                if (item.dotPosition == item.rhs.size() || item.rhs[item.dotPosition] == "") {
+                if (item.dotPosition == item.rhs.size()) {
                     if (item.lhs == "S'") {
                         // Accept on $
                         if (reductionTable[currState.index].count("$")) {
@@ -386,11 +382,6 @@ public:
                     }
                     else {
                         int ruleNumber = cfg.getProductionIndex(item.lhs, item.rhs);
-                        cout << "State : " << currState.index << " Rule " << ruleNumber << " : " << item.lhs << " -> ";
-                        for (const string& sym : item.rhs) {
-                            cout << sym << " ";
-                        }
-                        cout << "\n";
                         for (const string& sym : cfg.follow[item.lhs]) {
                             if (actionTable[currState.index].count(sym)) {
                                 cerr << "SHIFT/REDUCE conflict at state " << currState.index
@@ -410,7 +401,7 @@ public:
                 }
             }
         }
-        // writeRulesToFile("rules.txt");
+        writeRulesToFile("rules.txt");
         writeItemsToFile("items.txt");
         writeActionTable();
         writeGotoTable();
@@ -515,12 +506,11 @@ public:
             //cout << "Current Symbol: " << symbol << endl;
             if (!types.count(symbol))
                 symbol = currentToken.value;
-            cout << "Current state: " << currentState << ", Current token: " << symbol << " ";
+            //cout << "Current state: " << currentState << ", Current token: " << symbol << cfg.getProductionByIndex(reductionTable[currentState][symbol]).first << endl;
             // Case 2: SHIFT
             if (actionTable[currentState].count(symbol)) {
                 int nextState = actionTable[currentState][symbol];
                 stateStack.push_back(nextState);
-                cout << "SHIFT to state: " << nextState << endl;
                 symbolStack.push_back(new ASTNode(currentToken.type, currentToken));
                 currentToken = tokens[++i];
             }
@@ -528,7 +518,7 @@ public:
             // Case 3: REDUCE
             else if (reductionTable[currentState].count(symbol)) {
                 int prodIndex = reductionTable[currentState][symbol];
-                cout << "REDUCE by production: " << prodIndex << " ";
+                //cout << "production index: " << prodIndex << endl;
                 if (prodIndex == -1) {
                     cout << "Parsing successful. AST written to AST.txt\n";
                     AST ast(symbolStack.back());
@@ -554,20 +544,9 @@ public:
                 int topState = stateStack.back();
                 if (!gotoTable[topState].count(lhs)) {
                     cerr << "No GOTO entry for state " << topState << " on symbol '" << lhs << "'\n";
-                    //write everything which is in the stack currently
-                    /*cout << "\nSymbol stack contents: ";
-                    for (auto node : symbolStack) {
-                        if (!types.count(node->type)) {
-                            cout << node->token.value << " ";
-                        }
-                        else {
-                            cout << node->type << " ";
-                        }
-                    }
-                    cout << "\n";*/
                     return;
                 }
-                cout << "GOTO to state: " << gotoTable[topState][lhs] << endl;
+
                 stateStack.push_back(gotoTable[topState][lhs]);
             }
 
@@ -576,11 +555,6 @@ public:
                 cerr << "Syntax error at line " << currentToken.line << " near '" << currentToken.value << "'\n";
                 return;
             }
-            cout << "Current state stack: ";
-            for (auto state : stateStack) {
-                cout << state << " ";
-            }
-            cout << endl;
         }
     }
 };

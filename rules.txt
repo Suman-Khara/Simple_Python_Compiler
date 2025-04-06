@@ -1,51 +1,50 @@
-0 : Production: AssignmentStmt -> IDENTIFIER = Expression 
-1 : Production: CONSTANT -> BOOLEAN 
-2 : Production: CONSTANT -> STRING 
-3 : Production: CONSTANT -> FLOAT 
-4 : Production: CONSTANT -> INTEGER 
-5 : Production: Condition -> Expression RelOp Expression 
-6 : Production: Condition -> Expression 
-7 : Production: ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
-8 : Production: ElseClause -> else : NEWLINE INDENT StmtList DEDENT 
-9 : Production: ElsePart -> ElifList ElseClause 
-10 : Production: ElsePart -> ElifList 
-11 : Production: ElsePart -> ElseClause 
-12 : Production: ElsePart ->  
-13 : Production: Expression -> Expression + Term 
-14 : Production: Expression -> Expression - Term 
-15 : Production: Expression -> Term 
-16 : Production: Expression -> int ( Expression ) 
-17 : Production: Expression -> float ( Expression ) 
-18 : Production: Expression -> str ( Expression ) 
-19 : Production: Expression -> bool ( Expression ) 
-20 : Production: Expression -> list ( Expression ) 
-21 : Production: IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
-22 : Production: InputStmt -> IDENTIFIER = input ( STRING ) 
-23 : Production: ListElements -> Expression , ListElements 
-24 : Production: ListElements -> Expression 
-25 : Production: ListElements ->  
-26 : Production: ListLiteral -> [ ListElements ] 
-27 : Production: Postfix -> Primary [ Expression ] 
-28 : Production: Postfix -> Primary 
-29 : Production: Primary -> CONSTANT 
-30 : Production: Primary -> IDENTIFIER 
-31 : Production: Primary -> ( Expression ) 
-32 : Production: Primary -> ListLiteral 
-33 : Production: PrintStmt -> print ( Expression ) 
-34 : Production: Program -> StmtList 
-35 : Production: RelOp -> < 
-36 : Production: RelOp -> > 
-37 : Production: RelOp -> == 
-38 : Production: RelOp -> != 
-39 : Production: RelOp -> <= 
-40 : Production: RelOp -> >= 
-41 : Production: Statement -> AssignmentStmt 
-42 : Production: Statement -> InputStmt 
-43 : Production: Statement -> PrintStmt 
-44 : Production: Statement -> IfStmt 
-45 : Production: StmtList -> Statement NEWLINE StmtList 
-46 : Production: StmtList -> Statement 
-47 : Production: StmtList ->  
-48 : Production: Term -> Term * Postfix 
-49 : Production: Term -> Term / Postfix 
-50 : Production: Term -> Postfix 
+0: Term -> Term * Postfix 
+1: Term -> Term / Postfix 
+2: Term -> Postfix 
+3: StmtList -> Statement NEWLINE StmtList 
+4: StmtList -> 
+5: Statement -> AssignmentStmt 
+6: Statement -> InputStmt 
+7: Statement -> PrintStmt 
+8: Statement -> IfStmt 
+9: PrintStmt -> print ( Expression ) 
+10: Condition -> Expression RelOp Expression 
+11: Condition -> Expression 
+12: RelOp -> < 
+13: RelOp -> > 
+14: RelOp -> == 
+15: RelOp -> != 
+16: RelOp -> <= 
+17: RelOp -> >= 
+18: AssignmentStmt -> IDENTIFIER = Expression 
+19: InputStmt -> IDENTIFIER = input ( STRING ) 
+20: ListLiteral -> [ ListElements ] 
+21: ElifList -> elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
+22: Postfix -> Primary [ Expression ] 
+23: Postfix -> Primary 
+24: ElseClause -> else : NEWLINE INDENT StmtList DEDENT 
+25: CONSTANT -> BOOLEAN 
+26: CONSTANT -> STRING 
+27: CONSTANT -> FLOAT 
+28: CONSTANT -> INTEGER 
+29: Expression -> Expression + Term 
+30: Expression -> Expression - Term 
+31: Expression -> Term 
+32: Expression -> int ( Expression ) 
+33: Expression -> float ( Expression ) 
+34: Expression -> str ( Expression ) 
+35: Expression -> bool ( Expression ) 
+36: Expression -> list ( Expression ) 
+37: Program -> StmtList 
+38: ListElements -> Expression , ListElements 
+39: ListElements -> Expression 
+40: ListElements -> 
+41: ElsePart -> ElifList ElseClause 
+42: ElsePart -> ElifList 
+43: ElsePart -> ElseClause 
+44: ElsePart -> 
+45: IfStmt -> if Condition : NEWLINE INDENT StmtList DEDENT ElsePart 
+46: Primary -> CONSTANT 
+47: Primary -> IDENTIFIER 
+48: Primary -> ( Expression ) 
+49: Primary -> ListLiteral 

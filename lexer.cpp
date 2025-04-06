@@ -113,14 +113,14 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
         // Handle INDENT / DEDENT
         if (currentIndent > indentStack.top()) {
             indentStack.push(currentIndent);
-            allTokens.push_back({ "INDENT", "", lineNumber });
-            lexReport << lineNumber << setw(15) << "" << setw(15) << "INDENT" << endl;
+            allTokens.push_back({ "INDENT", "<INDENT>", lineNumber });
+            lexReport << lineNumber << setw(15) << "<INDENT>" << setw(15) << "INDENT" << endl;
         }
         else {
             while (currentIndent < indentStack.top()) {
                 indentStack.pop();
-                allTokens.push_back({ "DEDENT", "", lineNumber });
-                lexReport << lineNumber << setw(15) << "" << setw(15) << "DEDENT" << endl;
+                allTokens.push_back({ "DEDENT", "<DEDENT>", lineNumber });
+                lexReport << lineNumber << setw(15) << "<DEDENT>" << setw(15) << "DEDENT" << endl;
             }
             if (currentIndent != indentStack.top()) {
                 cerr << "Indentation Error at line " << lineNumber << endl;
@@ -147,8 +147,8 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
         }
 
         // Add NEWLINE token
-        allTokens.push_back({ "NEWLINE", "", lineNumber });
-        lexReport << lineNumber << setw(15) << "" << setw(15) << "NEWLINE" << endl;
+        allTokens.push_back({ "NEWLINE", "<NEWLINE>", lineNumber });
+        lexReport << lineNumber << setw(15) << "<NEWLINE>" << setw(15) << "NEWLINE" << endl;
 
         lineNumber++;
     }
@@ -156,8 +156,8 @@ vector<Token> Lexer::analyze(const string& fileName, SymbolTable& symbolTable, L
     // Handle remaining DEDENTs
     while (indentStack.size() > 1) {
         indentStack.pop();
-        allTokens.push_back({ "DEDENT", "", lineNumber });
-        lexReport << lineNumber << setw(15) << "" << setw(15) << "DEDENT" << endl;
+        allTokens.push_back({ "DEDENT", "<DEDENT>", lineNumber });
+        lexReport << lineNumber << setw(15) << "<DEDENT>" << setw(15) << "DEDENT" << endl;
     }
 
     allTokens.push_back({ "$", "$", lineNumber });

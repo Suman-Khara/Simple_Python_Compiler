@@ -10,8 +10,7 @@ Statement -> . AssignmentStmt
 Statement -> . IfStmt 
 Statement -> . InputStmt 
 Statement -> . PrintStmt 
-StmtList -> .  
-StmtList -> . Statement 
+StmtList -> .
 StmtList -> . Statement NEWLINE StmtList 
 
 1:
@@ -55,7 +54,6 @@ S' -> Program .
 Program -> StmtList .
 
 6:
-StmtList -> Statement .
 StmtList -> Statement . NEWLINE StmtList 
 
 7:
@@ -138,7 +136,7 @@ Expression -> . float ( Expression )
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
-ListElements -> .  
+ListElements -> .
 ListElements -> . Expression 
 ListElements -> . Expression , ListElements 
 ListLiteral -> . [ ListElements ] 
@@ -246,8 +244,7 @@ Statement -> . AssignmentStmt
 Statement -> . IfStmt 
 Statement -> . InputStmt 
 Statement -> . PrintStmt 
-StmtList -> .  
-StmtList -> . Statement 
+StmtList -> .
 StmtList -> . Statement NEWLINE StmtList 
 StmtList -> Statement NEWLINE . StmtList 
 
@@ -583,7 +580,7 @@ Expression -> . float ( Expression )
 Expression -> . int ( Expression ) 
 Expression -> . list ( Expression ) 
 Expression -> . str ( Expression ) 
-ListElements -> .  
+ListElements -> .
 ListElements -> . Expression 
 ListElements -> . Expression , ListElements 
 ListElements -> Expression , . ListElements 
@@ -664,8 +661,7 @@ Statement -> . AssignmentStmt
 Statement -> . IfStmt 
 Statement -> . InputStmt 
 Statement -> . PrintStmt 
-StmtList -> .  
-StmtList -> . Statement 
+StmtList -> .
 StmtList -> . Statement NEWLINE StmtList 
 
 83:
@@ -680,7 +676,7 @@ InputStmt -> IDENTIFIER = input ( STRING ) .
 86:
 ElifList -> . elif Condition : NEWLINE INDENT StmtList DEDENT ElifList 
 ElseClause -> . else : NEWLINE INDENT StmtList DEDENT 
-ElsePart -> .  
+ElsePart -> .
 ElsePart -> . ElifList 
 ElsePart -> . ElifList ElseClause 
 ElsePart -> . ElseClause 
@@ -755,8 +751,7 @@ Statement -> . AssignmentStmt
 Statement -> . IfStmt 
 Statement -> . InputStmt 
 Statement -> . PrintStmt 
-StmtList -> .  
-StmtList -> . Statement 
+StmtList -> .
 StmtList -> . Statement NEWLINE StmtList 
 
 99:
@@ -769,8 +764,7 @@ Statement -> . AssignmentStmt
 Statement -> . IfStmt 
 Statement -> . InputStmt 
 Statement -> . PrintStmt 
-StmtList -> .  
-StmtList -> . Statement 
+StmtList -> .
 StmtList -> . Statement NEWLINE StmtList 
 
 100:

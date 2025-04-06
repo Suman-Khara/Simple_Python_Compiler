@@ -13,7 +13,7 @@
   "productions": {
     "Program": [["StmtList"]],
     
-    "StmtList": [["Statement", "NEWLINE", "StmtList"], ["Statement"], [""]],
+    "StmtList": [["Statement", "NEWLINE", "StmtList"], []],
     
     "Statement": [["AssignmentStmt"], ["InputStmt"], ["PrintStmt"], ["IfStmt"]],
     
@@ -25,7 +25,7 @@
     
     "IfStmt": [["if", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElsePart"]],
     
-    "ElsePart": [["ElifList", "ElseClause"], ["ElifList"], ["ElseClause"], [""]],
+    "ElsePart": [["ElifList", "ElseClause"], ["ElifList"], ["ElseClause"], []],
     
     "ElifList": [["elif", "Condition", ":", "NEWLINE", "INDENT", "StmtList", "DEDENT", "ElifList"]],
     
@@ -48,7 +48,7 @@
     
     "ListLiteral": [["[", "ListElements", "]"]],
     
-    "ListElements": [["Expression", ",", "ListElements"], ["Expression"], [""]],
+    "ListElements": [["Expression", ",", "ListElements"], ["Expression"], []],
     
     "CONSTANT": [["BOOLEAN"], ["STRING"], ["FLOAT"], ["INTEGER"]]
   },

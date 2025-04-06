@@ -1,19 +1,19 @@
-Primary : DEDENT - [ , * < == ] : + / $ ) > != <= >= NEWLINE 
-Term : DEDENT , * < == ] : + / $ ) > != <= >= NEWLINE - 
+Primary : - [ , * < == ] : + / ) > != <= >= NEWLINE 
+Term : , * < == ] : + / ) > != <= >= NEWLINE - 
 ListElements : ] 
 Program : $ 
 StmtList : $ DEDENT 
-Statement : $ DEDENT NEWLINE 
-ElseClause : $ DEDENT NEWLINE 
-CONSTANT : DEDENT >= [ , * < == ] : + / NEWLINE - $ ) > != <= 
-Expression : DEDENT $ ) > == ] != <= < , >= NEWLINE + : - 
+Statement : NEWLINE 
+ElseClause : NEWLINE 
+CONSTANT : >= [ , * < == ] : + / NEWLINE - ) > != <= 
+Expression : - : NEWLINE >= , <= != + ] == < > ) 
 Condition : : 
-PrintStmt : $ DEDENT NEWLINE 
-IfStmt : $ DEDENT NEWLINE 
-ElsePart : $ DEDENT NEWLINE 
-ListLiteral : DEDENT >= [ , * < == ] : + / NEWLINE - $ ) > != <= 
-AssignmentStmt : $ DEDENT NEWLINE 
-InputStmt : $ DEDENT NEWLINE 
+PrintStmt : NEWLINE 
+IfStmt : NEWLINE 
+ElsePart : NEWLINE 
+ListLiteral : >= [ , * < == ] : + / NEWLINE - ) > != <= 
+AssignmentStmt : NEWLINE 
+InputStmt : NEWLINE 
 RelOp : INTEGER FLOAT STRING [ IDENTIFIER ( bool list str float BOOLEAN int 
-Postfix : DEDENT , * < == ] : + / $ ) > != <= >= NEWLINE - 
-ElifList : $ DEDENT NEWLINE else 
+Postfix : , * < == ] : + / ) > != <= >= NEWLINE - 
+ElifList : NEWLINE else 
