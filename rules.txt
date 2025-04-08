@@ -42,11 +42,10 @@
 41 RelOp -> >= 
 42 Statement -> AssignmentStmt 
 43 Statement -> PrintStmt 
-44 Statement -> IfStmt 
-45 StmtList -> Statement NEWLINE StmtList 
-46 StmtList -> Statement 
-47 StmtList -> IfStmt StmtList 
-48 StmtList -> 
-49 Term -> Term * Postfix 
-50 Term -> Term / Postfix 
-51 Term -> Postfix 
+44 StmtList -> Statement NEWLINE StmtList 
+45 StmtList -> Statement 
+46 StmtList -> IfStmt StmtList 
+47 StmtList -> 
+48 Term -> Term * Postfix 
+49 Term -> Term / Postfix 
+50 Term -> Postfix 

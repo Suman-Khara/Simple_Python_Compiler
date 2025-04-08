@@ -1,77 +1,77 @@
 Literal Table:
 Value: "Alice", Type: STRING
-  Unassigned Addresses: 2758355532384 2758355694912 
+  Unassigned Addresses: 3231857473312 3231857473408 
   Assigned Addresses: 
 
 Value: "Bob", Type: STRING
-  Unassigned Addresses: 2758355695344 
+  Unassigned Addresses: 3231857473600 
   Assigned Addresses: 
 
 Value: "Hello Alice", Type: STRING
-  Unassigned Addresses: 2758355695248 
+  Unassigned Addresses: 3231857473696 
   Assigned Addresses: 
 
 Value: "Hello Bob", Type: STRING
-  Unassigned Addresses: 2758355693808 
+  Unassigned Addresses: 3231857473072 
   Assigned Addresses: 
 
 Value: "Hello Stranger", Type: STRING
-  Unassigned Addresses: 2758355694000 
+  Unassigned Addresses: 3231857474032 
   Assigned Addresses: 
 
 Value: "Nested if working: x is 10 and valid", Type: STRING
-  Unassigned Addresses: 2758355694288 
+  Unassigned Addresses: 3231857473456 
   Assigned Addresses: 
 
 Value: "Not valid", Type: STRING
-  Unassigned Addresses: 2758355695104 
+  Unassigned Addresses: 3231857473792 
   Assigned Addresses: 
 
 Value: "Testing Data Types:", Type: STRING
-  Unassigned Addresses: 2758355694192 
+  Unassigned Addresses: 3231857473648 
   Assigned Addresses: 
 
 Value: "x is greater than 5", Type: STRING
-  Unassigned Addresses: 2758355693712 
+  Unassigned Addresses: 3231857473360 
   Assigned Addresses: 
 
 Value: "x is not 10 but valid", Type: STRING
-  Unassigned Addresses: 2758355695056 
+  Unassigned Addresses: 3231857473552 
   Assigned Addresses: 
 
 Value: "y is greater than or equal to 1", Type: STRING
-  Unassigned Addresses: 2758355693760 
+  Unassigned Addresses: 3231857472736 
   Assigned Addresses: 
 
 Value: "y is less than 1", Type: STRING
-  Unassigned Addresses: 2758355694144 
+  Unassigned Addresses: 3231857472544 
   Assigned Addresses: 
 
 Value: 1, Type: INTEGER
-  Unassigned Addresses: 2758355650608 2758355686784 
+  Unassigned Addresses: 3231857451376 3231857489632 
   Assigned Addresses: 
 
 Value: 10, Type: INTEGER
-  Unassigned Addresses: 2758355650528 2758355687344 
+  Unassigned Addresses: 3231857451312 3231857489536 
   Assigned Addresses: 
 
 Value: 2, Type: INTEGER
-  Unassigned Addresses: 2758355650624 
+  Unassigned Addresses: 3231857451424 
   Assigned Addresses: 
 
 Value: 3, Type: INTEGER
-  Unassigned Addresses: 2758355687440 
+  Unassigned Addresses: 3231857489232 
   Assigned Addresses: 
 
 Value: 3.14, Type: FLOAT
-  Unassigned Addresses: 2758355650688 
+  Unassigned Addresses: 3231857451248 
   Assigned Addresses: 
 
 Value: 5, Type: INTEGER
-  Unassigned Addresses: 2758355687520 
+  Unassigned Addresses: 3231857489120 
   Assigned Addresses: 
 
 Value: True, Type: BOOLEAN
-  Unassigned Addresses: 2758355650784 
+  Unassigned Addresses: 3231857451216 
   Assigned Addresses: 
 

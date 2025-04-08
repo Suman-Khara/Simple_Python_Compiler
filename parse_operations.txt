@@ -1,0 +1,428 @@
+Current state: 0, Current token: IDENTIFIER SHIFT to state 3
+Current state: 3, Current token: = SHIFT to state 31
+Current state: 31, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: NEWLINE REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: NEWLINE REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: NEWLINE REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: NEWLINE REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: NEWLINE REDUCE by rule 13 GOTO to state 57
+Current state: 57, Current token: NEWLINE REDUCE by rule 0 GOTO to state 9
+Current state: 9, Current token: NEWLINE REDUCE by rule 42 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: IDENTIFIER SHIFT to state 3
+Current state: 3, Current token: = SHIFT to state 31
+Current state: 31, Current token: FLOAT SHIFT to state 13
+Current state: 13, Current token: NEWLINE REDUCE by rule 3 GOTO to state 25
+Current state: 25, Current token: NEWLINE REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: NEWLINE REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: NEWLINE REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: NEWLINE REDUCE by rule 13 GOTO to state 57
+Current state: 57, Current token: NEWLINE REDUCE by rule 0 GOTO to state 9
+Current state: 9, Current token: NEWLINE REDUCE by rule 42 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: IDENTIFIER SHIFT to state 3
+Current state: 3, Current token: = SHIFT to state 31
+Current state: 31, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: NEWLINE REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: NEWLINE REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: NEWLINE REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: NEWLINE REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: NEWLINE REDUCE by rule 13 GOTO to state 57
+Current state: 57, Current token: NEWLINE REDUCE by rule 0 GOTO to state 9
+Current state: 9, Current token: NEWLINE REDUCE by rule 42 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: IDENTIFIER SHIFT to state 3
+Current state: 3, Current token: = SHIFT to state 31
+Current state: 31, Current token: BOOLEAN SHIFT to state 11
+Current state: 11, Current token: NEWLINE REDUCE by rule 1 GOTO to state 25
+Current state: 25, Current token: NEWLINE REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: NEWLINE REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: NEWLINE REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: NEWLINE REDUCE by rule 13 GOTO to state 57
+Current state: 57, Current token: NEWLINE REDUCE by rule 0 GOTO to state 9
+Current state: 9, Current token: NEWLINE REDUCE by rule 42 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: IDENTIFIER SHIFT to state 3
+Current state: 3, Current token: = SHIFT to state 31
+Current state: 31, Current token: [ SHIFT to state 22
+Current state: 22, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: , REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: , REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: , REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: , REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: , REDUCE by rule 13 GOTO to state 42
+Current state: 42, Current token: , SHIFT to state 68
+Current state: 68, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: , REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: , REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: , REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: , REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: , REDUCE by rule 13 GOTO to state 42
+Current state: 42, Current token: , SHIFT to state 68
+Current state: 68, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: ] REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: ] REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ] REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ] REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ] REDUCE by rule 13 GOTO to state 42
+Current state: 42, Current token: ] REDUCE by rule 25 GOTO to state 83
+Current state: 83, Current token: ] REDUCE by rule 24 GOTO to state 83
+Current state: 83, Current token: ] REDUCE by rule 24 GOTO to state 41
+Current state: 41, Current token: ] SHIFT to state 67
+Current state: 67, Current token: NEWLINE REDUCE by rule 27 GOTO to state 29
+Current state: 29, Current token: NEWLINE REDUCE by rule 33 GOTO to state 23
+Current state: 23, Current token: NEWLINE REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: NEWLINE REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: NEWLINE REDUCE by rule 13 GOTO to state 57
+Current state: 57, Current token: NEWLINE REDUCE by rule 0 GOTO to state 9
+Current state: 9, Current token: NEWLINE REDUCE by rule 42 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: ) REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: ) REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: ) REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: ) REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: ) REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: if SHIFT to state 1
+Current state: 1, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: > REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: > REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: > REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: > REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: > SHIFT to state 50
+Current state: 50, Current token: INTEGER REDUCE by rule 37 GOTO to state 54
+Current state: 54, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: : REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: : REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 74
+Current state: 74, Current token: : REDUCE by rule 5 GOTO to state 28
+Current state: 28, Current token: : SHIFT to state 55
+Current state: 55, Current token: NEWLINE SHIFT to state 75
+Current state: 75, Current token: INDENT SHIFT to state 85
+Current state: 85, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 86
+Current state: 86, Current token: DEDENT SHIFT to state 87
+Current state: 87, Current token: if REDUCE by rule 23 GOTO to state 8
+Current state: 8, Current token: if SHIFT to state 1
+Current state: 1, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: < REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: < REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: < REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: < REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: < SHIFT to state 48
+Current state: 48, Current token: INTEGER REDUCE by rule 36 GOTO to state 54
+Current state: 54, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: : REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: : REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 74
+Current state: 74, Current token: : REDUCE by rule 5 GOTO to state 28
+Current state: 28, Current token: : SHIFT to state 55
+Current state: 55, Current token: NEWLINE SHIFT to state 75
+Current state: 75, Current token: INDENT SHIFT to state 85
+Current state: 85, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 86
+Current state: 86, Current token: DEDENT SHIFT to state 87
+Current state: 87, Current token: else SHIFT to state 89
+Current state: 89, Current token: : SHIFT to state 93
+Current state: 93, Current token: NEWLINE SHIFT to state 95
+Current state: 95, Current token: INDENT SHIFT to state 97
+Current state: 97, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 99
+Current state: 99, Current token: DEDENT SHIFT to state 101
+Current state: 101, Current token: if REDUCE by rule 10 GOTO to state 90
+Current state: 90, Current token: if REDUCE by rule 22 GOTO to state 8
+Current state: 8, Current token: if SHIFT to state 1
+Current state: 1, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: == REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: == REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: == REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: == REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: == SHIFT to state 53
+Current state: 53, Current token: STRING REDUCE by rule 38 GOTO to state 54
+Current state: 54, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: : REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: : REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 74
+Current state: 74, Current token: : REDUCE by rule 5 GOTO to state 28
+Current state: 28, Current token: : SHIFT to state 55
+Current state: 55, Current token: NEWLINE SHIFT to state 75
+Current state: 75, Current token: INDENT SHIFT to state 85
+Current state: 85, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 86
+Current state: 86, Current token: DEDENT SHIFT to state 87
+Current state: 87, Current token: elif SHIFT to state 88
+Current state: 88, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: == REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: == REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: == REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: == REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: == SHIFT to state 53
+Current state: 53, Current token: STRING REDUCE by rule 38 GOTO to state 54
+Current state: 54, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: : REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: : REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 74
+Current state: 74, Current token: : REDUCE by rule 5 GOTO to state 92
+Current state: 92, Current token: : SHIFT to state 94
+Current state: 94, Current token: NEWLINE SHIFT to state 96
+Current state: 96, Current token: INDENT SHIFT to state 98
+Current state: 98, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 100
+Current state: 100, Current token: DEDENT SHIFT to state 102
+Current state: 102, Current token: else SHIFT to state 89
+Current state: 89, Current token: : SHIFT to state 93
+Current state: 93, Current token: NEWLINE SHIFT to state 95
+Current state: 95, Current token: INDENT SHIFT to state 97
+Current state: 97, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 99
+Current state: 99, Current token: DEDENT SHIFT to state 101
+Current state: 101, Current token: if REDUCE by rule 10 GOTO to state 103
+Current state: 103, Current token: if REDUCE by rule 8 GOTO to state 91
+Current state: 91, Current token: if REDUCE by rule 21 GOTO to state 8
+Current state: 8, Current token: if SHIFT to state 1
+Current state: 1, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: : REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: : REDUCE by rule 6 GOTO to state 28
+Current state: 28, Current token: : SHIFT to state 55
+Current state: 55, Current token: NEWLINE SHIFT to state 75
+Current state: 75, Current token: INDENT SHIFT to state 85
+Current state: 85, Current token: if SHIFT to state 1
+Current state: 1, Current token: IDENTIFIER SHIFT to state 16
+Current state: 16, Current token: == REDUCE by rule 31 GOTO to state 23
+Current state: 23, Current token: == REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: == REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: == REDUCE by rule 13 GOTO to state 26
+Current state: 26, Current token: == SHIFT to state 53
+Current state: 53, Current token: INTEGER REDUCE by rule 38 GOTO to state 54
+Current state: 54, Current token: INTEGER SHIFT to state 10
+Current state: 10, Current token: : REDUCE by rule 4 GOTO to state 25
+Current state: 25, Current token: : REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: : REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: : REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: : REDUCE by rule 13 GOTO to state 74
+Current state: 74, Current token: : REDUCE by rule 5 GOTO to state 28
+Current state: 28, Current token: : SHIFT to state 55
+Current state: 55, Current token: NEWLINE SHIFT to state 75
+Current state: 75, Current token: INDENT SHIFT to state 85
+Current state: 85, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 86
+Current state: 86, Current token: DEDENT SHIFT to state 87
+Current state: 87, Current token: else SHIFT to state 89
+Current state: 89, Current token: : SHIFT to state 93
+Current state: 93, Current token: NEWLINE SHIFT to state 95
+Current state: 95, Current token: INDENT SHIFT to state 97
+Current state: 97, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 99
+Current state: 99, Current token: DEDENT SHIFT to state 101
+Current state: 101, Current token: DEDENT REDUCE by rule 10 GOTO to state 90
+Current state: 90, Current token: DEDENT REDUCE by rule 22 GOTO to state 8
+Current state: 8, Current token: DEDENT REDUCE by rule 47 GOTO to state 33
+Current state: 33, Current token: DEDENT REDUCE by rule 46 GOTO to state 86
+Current state: 86, Current token: DEDENT SHIFT to state 87
+Current state: 87, Current token: else SHIFT to state 89
+Current state: 89, Current token: : SHIFT to state 93
+Current state: 93, Current token: NEWLINE SHIFT to state 95
+Current state: 95, Current token: INDENT SHIFT to state 97
+Current state: 97, Current token: print SHIFT to state 2
+Current state: 2, Current token: ( SHIFT to state 30
+Current state: 30, Current token: STRING SHIFT to state 17
+Current state: 17, Current token: ) REDUCE by rule 2 GOTO to state 25
+Current state: 25, Current token: ) REDUCE by rule 30 GOTO to state 23
+Current state: 23, Current token: ) REDUCE by rule 29 GOTO to state 27
+Current state: 27, Current token: ) REDUCE by rule 50 GOTO to state 24
+Current state: 24, Current token: ) REDUCE by rule 13 GOTO to state 56
+Current state: 56, Current token: ) SHIFT to state 76
+Current state: 76, Current token: NEWLINE REDUCE by rule 34 GOTO to state 7
+Current state: 7, Current token: NEWLINE REDUCE by rule 43 GOTO to state 6
+Current state: 6, Current token: NEWLINE SHIFT to state 32
+Current state: 32, Current token: DEDENT REDUCE by rule 47 GOTO to state 58
+Current state: 58, Current token: DEDENT REDUCE by rule 44 GOTO to state 99
+Current state: 99, Current token: DEDENT SHIFT to state 101
+Current state: 101, Current token: $ REDUCE by rule 10 GOTO to state 90
+Current state: 90, Current token: $ REDUCE by rule 22 GOTO to state 8
+Current state: 8, Current token: $ REDUCE by rule 47 GOTO to state 33
+Current state: 33, Current token: $ REDUCE by rule 46 GOTO to state 33
+Current state: 33, Current token: $ REDUCE by rule 46 GOTO to state 33
+Current state: 33, Current token: $ REDUCE by rule 46 GOTO to state 33
+Current state: 33, Current token: $ REDUCE by rule 46 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 58
+Current state: 58, Current token: $ REDUCE by rule 44 GOTO to state 5
+Current state: 5, Current token: $ REDUCE by rule 35 GOTO to state 4
+Current state: 4, Current token: $ ACCEPT

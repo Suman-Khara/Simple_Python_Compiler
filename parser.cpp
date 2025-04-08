@@ -484,21 +484,21 @@ public:
 
         size_t i = 0;
         Token currentToken = tokens[i];
-
+        ofstream out("parse_operations.txt");
         while (true) {
             int currentState = stateStack.back();
             string symbol = currentToken.type;
             //cout << "Current Symbol: " << symbol << endl;
             if (!types.count(symbol))
                 symbol = currentToken.value;
-            cout << "Current state: " << currentState << ", Current token: " << symbol << " ";
+            out << "Current state: " << currentState << ", Current token: " << symbol << " ";
             // Case 2: SHIFT
             if (actionTable[currentState].count(symbol)) {
                 int nextState = actionTable[currentState][symbol];
                 stateStack.push_back(nextState);
                 symbolStack.push_back(new ASTNode(currentToken.type, currentToken));
                 currentToken = tokens[++i];
-                cout << "SHIFT to state " << nextState << endl;
+                out << "SHIFT to state " << nextState << endl;
             }
 
             // Case 3: REDUCE
@@ -506,6 +506,7 @@ public:
                 int prodIndex = reductionTable[currentState][symbol];
                 //cout << "production index: " << prodIndex << endl;
                 if (prodIndex == -1) {
+                    out << "ACCEPT\n";
                     cout << "Parsing successful. AST written to AST.txt\n";
                     AST ast(symbolStack.back());
                     ast.writeToFile();
@@ -529,16 +530,18 @@ public:
 
                 int topState = stateStack.back();
                 if (!gotoTable[topState].count(lhs)) {
+                    out << "No GOTO entry for state " << topState << " on symbol '" << lhs << "'\n";
                     cerr << "No GOTO entry for state " << topState << " on symbol '" << lhs << "'\n";
                     return;
                 }
 
                 stateStack.push_back(gotoTable[topState][lhs]);
-                cout << "REDUCE by rule " << prodIndex << " GOTO to state " << stateStack.back() << "\n";
+                out << "REDUCE by rule " << prodIndex << " GOTO to state " << stateStack.back() << "\n";
             }
 
             // Case 4: ERROR
             else {
+                out << "Syntax error at line " << currentToken.line << " near '" << currentToken.value << "'\n";
                 cerr << "Syntax error at line " << currentToken.line << " near '" << currentToken.value << "'\n";
                 return;
             }

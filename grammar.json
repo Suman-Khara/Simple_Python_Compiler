@@ -15,7 +15,7 @@
     
     "StmtList": [["Statement", "NEWLINE", "StmtList"], ["Statement"], ["IfStmt", "StmtList"], []],
     
-    "Statement": [["AssignmentStmt"], ["PrintStmt"], ["IfStmt"]],
+    "Statement": [["AssignmentStmt"], ["PrintStmt"]],
     
     "AssignmentStmt": [["IDENTIFIER", "=", "Expression"]],
     

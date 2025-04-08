@@ -8,7 +8,6 @@ PrintStmt -> . print ( Expression )
 Program -> . StmtList 
 S' -> . Program 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 
@@ -72,8 +71,6 @@ IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList
 IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
-Statement -> IfStmt .
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 
@@ -271,7 +268,6 @@ IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList
 IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 
@@ -748,7 +744,6 @@ IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause
 IfStmt -> if Condition : NEWLINE INDENT . StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 
@@ -838,7 +833,6 @@ IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList
 IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 
@@ -855,7 +849,6 @@ IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElifList
 IfStmt -> . if Condition : NEWLINE INDENT StmtList DEDENT ElseClause 
 PrintStmt -> . print ( Expression ) 
 Statement -> . AssignmentStmt 
-Statement -> . IfStmt 
 Statement -> . PrintStmt 
 StmtList -> .
 StmtList -> . IfStmt StmtList 

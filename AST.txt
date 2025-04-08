@@ -336,77 +336,34 @@ Program
                                       StmtList
                                     DEDENT (<DEDENT>)
                               StmtList
-                                Statement
-                                  IfStmt
-                                    KEYWORD (if)
-                                    Condition
-                                      Expression
-                                        Term
-                                          Postfix
-                                            Primary
-                                              IDENTIFIER (is_valid)
-                                    SEPARATOR (:)
-                                    NEWLINE (<NEWLINE>)
-                                    INDENT (<INDENT>)
-                                    StmtList
-                                      Statement
-                                        IfStmt
-                                          KEYWORD (if)
-                                          Condition
-                                            Expression
-                                              Term
-                                                Postfix
-                                                  Primary
-                                                    IDENTIFIER (x)
-                                            RelOp
-                                              OPERATOR (==)
-                                            Expression
-                                              Term
-                                                Postfix
-                                                  Primary
-                                                    CONSTANT
-                                                      INTEGER (10)
-                                          SEPARATOR (:)
-                                          NEWLINE (<NEWLINE>)
-                                          INDENT (<INDENT>)
-                                          StmtList
-                                            Statement
-                                              PrintStmt
-                                                KEYWORD (print)
-                                                SEPARATOR (()
-                                                Expression
-                                                  Term
-                                                    Postfix
-                                                      Primary
-                                                        CONSTANT
-                                                          STRING ("Nested if working: x is 10 and valid")
-                                                SEPARATOR ())
-                                            NEWLINE (<NEWLINE>)
-                                            StmtList
-                                          DEDENT (<DEDENT>)
-                                          ElseClause
-                                            KEYWORD (else)
-                                            SEPARATOR (:)
-                                            NEWLINE (<NEWLINE>)
-                                            INDENT (<INDENT>)
-                                            StmtList
-                                              Statement
-                                                PrintStmt
-                                                  KEYWORD (print)
-                                                  SEPARATOR (()
-                                                  Expression
-                                                    Term
-                                                      Postfix
-                                                        Primary
-                                                          CONSTANT
-                                                            STRING ("x is not 10 but valid")
-                                                  SEPARATOR ())
-                                              NEWLINE (<NEWLINE>)
-                                              StmtList
-                                            DEDENT (<DEDENT>)
-                                    DEDENT (<DEDENT>)
-                                    ElseClause
-                                      KEYWORD (else)
+                                IfStmt
+                                  KEYWORD (if)
+                                  Condition
+                                    Expression
+                                      Term
+                                        Postfix
+                                          Primary
+                                            IDENTIFIER (is_valid)
+                                  SEPARATOR (:)
+                                  NEWLINE (<NEWLINE>)
+                                  INDENT (<INDENT>)
+                                  StmtList
+                                    IfStmt
+                                      KEYWORD (if)
+                                      Condition
+                                        Expression
+                                          Term
+                                            Postfix
+                                              Primary
+                                                IDENTIFIER (x)
+                                        RelOp
+                                          OPERATOR (==)
+                                        Expression
+                                          Term
+                                            Postfix
+                                              Primary
+                                                CONSTANT
+                                                  INTEGER (10)
                                       SEPARATOR (:)
                                       NEWLINE (<NEWLINE>)
                                       INDENT (<INDENT>)
@@ -420,8 +377,51 @@ Program
                                                 Postfix
                                                   Primary
                                                     CONSTANT
-                                                      STRING ("Not valid")
+                                                      STRING ("Nested if working: x is 10 and valid")
                                             SEPARATOR ())
                                         NEWLINE (<NEWLINE>)
                                         StmtList
                                       DEDENT (<DEDENT>)
+                                      ElseClause
+                                        KEYWORD (else)
+                                        SEPARATOR (:)
+                                        NEWLINE (<NEWLINE>)
+                                        INDENT (<INDENT>)
+                                        StmtList
+                                          Statement
+                                            PrintStmt
+                                              KEYWORD (print)
+                                              SEPARATOR (()
+                                              Expression
+                                                Term
+                                                  Postfix
+                                                    Primary
+                                                      CONSTANT
+                                                        STRING ("x is not 10 but valid")
+                                              SEPARATOR ())
+                                          NEWLINE (<NEWLINE>)
+                                          StmtList
+                                        DEDENT (<DEDENT>)
+                                    StmtList
+                                  DEDENT (<DEDENT>)
+                                  ElseClause
+                                    KEYWORD (else)
+                                    SEPARATOR (:)
+                                    NEWLINE (<NEWLINE>)
+                                    INDENT (<INDENT>)
+                                    StmtList
+                                      Statement
+                                        PrintStmt
+                                          KEYWORD (print)
+                                          SEPARATOR (()
+                                          Expression
+                                            Term
+                                              Postfix
+                                                Primary
+                                                  CONSTANT
+                                                    STRING ("Not valid")
+                                          SEPARATOR ())
+                                      NEWLINE (<NEWLINE>)
+                                      StmtList
+                                    DEDENT (<DEDENT>)
+                                StmtList

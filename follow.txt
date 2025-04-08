@@ -4,12 +4,12 @@ Program : $
 StmtList : $ DEDENT 
 Term : $ ) , * < == ] : + / > != <= >= NEWLINE - DEDENT 
 Statement : $ DEDENT NEWLINE 
-ElseClause : $ NEWLINE IDENTIFIER DEDENT print if 
+ElseClause : $ IDENTIFIER DEDENT print if 
 CONSTANT : DEDENT ) $ [ , * < == ] : + / > != <= >= NEWLINE - 
 Expression : DEDENT == ] > $ ) != <= < , >= NEWLINE + : - 
 PrintStmt : $ DEDENT NEWLINE 
-IfStmt : $ NEWLINE IDENTIFIER DEDENT print if 
-ElifList : $ NEWLINE IDENTIFIER DEDENT print if 
+IfStmt : $ IDENTIFIER DEDENT print if 
+ElifList : $ IDENTIFIER DEDENT print if 
 Postfix : ) $ , * < == ] : + / > != <= >= NEWLINE - DEDENT 
 Condition : : 
 ListLiteral : DEDENT ) $ [ , * < == ] : + / > != <= >= NEWLINE - 

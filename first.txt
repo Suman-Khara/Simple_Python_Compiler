@@ -3,7 +3,7 @@ ListElements : BOOLEAN ε INTEGER FLOAT input STRING bool str float int IDENTIFI
 Program : print IDENTIFIER if ε 
 StmtList : IDENTIFIER print if ε 
 Term : BOOLEAN STRING FLOAT INTEGER ( [ IDENTIFIER 
-Statement : if print IDENTIFIER 
+Statement : print IDENTIFIER 
 ElseClause : else 
 CONSTANT : INTEGER FLOAT STRING BOOLEAN 
 Expression : INTEGER FLOAT [ IDENTIFIER ( STRING input bool list str float BOOLEAN int 
